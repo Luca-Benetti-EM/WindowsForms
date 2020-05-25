@@ -161,6 +161,7 @@ namespace EM.WindowsForms
             // 
             resources.ApplyResources(this.txtNome, "txtNome");
             this.txtNome.Name = "txtNome";
+            this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
             // 
             // lblNome
             // 

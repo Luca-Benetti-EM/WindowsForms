@@ -19,8 +19,6 @@ namespace EM.WindowsForms
 
 		RepositorioAluno repositorio = new RepositorioAluno();
 
-		BindingSource bsAluno = new BindingSource();
-
 		public Form1()
         {
             InitializeComponent();
@@ -40,17 +38,66 @@ namespace EM.WindowsForms
 
 		private void btnAdicionar_Click(object sender, EventArgs e)
 		{
-			Aluno aluno = new Aluno(12345789, "Luca", new DateTime(2000 - 01 - 25), "123456789", EnumeradorSexo.Masculino);
-			repositorio.Add(aluno);
+			//Validando entradas	
+			try
+			{
 
-			BindingSource bs = new BindingSource();
-			bs.DataSource = repositorio.GetAll();
+				DateTime nascimento = DateTime.ParseExact(txtNascimento.Text, "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("pt-BR")); //Data convertida para padrões BR
+				string CPF = txtCPF.Text;
+				string matricula = txtMatricula.Text;
+				string nome = txtNome.Text;
+				EnumeradorSexo sexo = (EnumeradorSexo)cboSexo.SelectedItem;
 
-			dgvListaAlunos.AutoGenerateColumns = false;
-			dgvListaAlunos.DataSource = bs;
+				//Validando matricula
+				if (matricula == "") //Não aceita matrícula vazia
+				{
+					MessageBox.Show("Matrícula não inserida");
+					return;
+				}
+
+				//Validando nome
+				if (nome == "") //Não aceita nome vazio
+				{
+					MessageBox.Show("Nome não inserido");
+					return;
+				}
+
+				//Validando nascimento
+				if (!ValidaData(nascimento))
+				{
+					MessageBox.Show("Não é possível adicionar uma data de nascimento futura");
+					return;
+				}
+
+				//Validando CPF
+				if (!(CPF == "")) //Aceita CPF Vazio, mas valida quando há algo inserido
+				{
+					CPF = Convert.ToUInt64(CPF).ToString(@"000\.000\.000\-00");
+
+					if (!(ValidaCPF(CPF)))
+					{
+						MessageBox.Show("CPF não é válido");
+						return;
+					}
+
+				}
+
+				//Passando todos os testes, cria um novo aluno e o insere na lista
+				Aluno teste = new Aluno(Convert.ToInt32(matricula), nome, nascimento, CPF, sexo);
+				repositorio.Add(teste);
+			}
+
+			catch (Exception)
+			{
+				MessageBox.Show("Data não preenchida corretamente");
+			}
+
+			//BindingSource e DataGridView são atualizados
+			BindingSource bsListaAlunos = new BindingSource();
+			bsListaAlunos.DataSource = repositorio.GetAll();
+			dgvListaAlunos.DataSource = bsListaAlunos;
 
 
-			MessageBox.Show(Convert.ToString(aluno.Sexo));
 		}
 
         private void maskedTextBox2_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -110,6 +157,11 @@ namespace EM.WindowsForms
 		}
 
 
+		private void btnPesquisar_Click(object sender, EventArgs e)
+		{
+
+		}
+
 		private bool ValidaCPF(string cpf)
 		{
 			int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
@@ -152,9 +204,12 @@ namespace EM.WindowsForms
 			return true;
 		}
 
-		private void btnPesquisar_Click(object sender, EventArgs e)
+		private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
 		{
-
+			if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !(e.KeyChar == (char) Keys.Space))
+			{
+				e.Handled = true;
+			}
 		}
 	}
 }
