@@ -32,11 +32,13 @@ namespace EM.WindowsForms
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlSuperior = new System.Windows.Forms.Panel();
             this.lblCadastroDeAlunos = new System.Windows.Forms.Label();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.txtCPF = new System.Windows.Forms.TextBox();
             this.txtMatricula = new System.Windows.Forms.TextBox();
             this.txtNascimento = new System.Windows.Forms.MaskedTextBox();
@@ -61,6 +63,7 @@ namespace EM.WindowsForms
             this.cPFDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.alunoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtPesquisa = new System.Windows.Forms.TextBox();
+            this.btnNovo = new System.Windows.Forms.Button();
             this.pnlSuperior.SuspendLayout();
             this.pnlPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaAlunos)).BeginInit();
@@ -83,6 +86,8 @@ namespace EM.WindowsForms
             // pnlPrincipal
             // 
             this.pnlPrincipal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlPrincipal.Controls.Add(this.btnCancelar);
+            this.pnlPrincipal.Controls.Add(this.btnModificar);
             this.pnlPrincipal.Controls.Add(this.txtCPF);
             this.pnlPrincipal.Controls.Add(this.txtMatricula);
             this.pnlPrincipal.Controls.Add(this.txtNascimento);
@@ -97,6 +102,20 @@ namespace EM.WindowsForms
             this.pnlPrincipal.Controls.Add(this.lblMatricula);
             resources.ApplyResources(this.pnlPrincipal, "pnlPrincipal");
             this.pnlPrincipal.Name = "pnlPrincipal";
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            resources.ApplyResources(this.btnCancelar, "btnCancelar");
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            resources.ApplyResources(this.btnModificar, "btnModificar");
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.UseVisualStyleBackColor = false;
             // 
             // txtCPF
             // 
@@ -207,14 +226,14 @@ namespace EM.WindowsForms
             this.dgvListaAlunos.AutoGenerateColumns = false;
             this.dgvListaAlunos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaAlunos.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListaAlunos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaAlunos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvListaAlunos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaAlunos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.matriculaDataGridViewTextBoxColumn,
@@ -223,15 +242,15 @@ namespace EM.WindowsForms
             this.nascimentoDataGridViewTextBoxColumn,
             this.cPFDataGridViewTextBoxColumn});
             this.dgvListaAlunos.DataSource = this.alunoBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(3);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListaAlunos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(3);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListaAlunos.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvListaAlunos.EnableHeadersVisualStyles = false;
             this.dgvListaAlunos.GridColor = System.Drawing.SystemColors.ActiveBorder;
             resources.ApplyResources(this.dgvListaAlunos, "dgvListaAlunos");
@@ -284,10 +303,19 @@ namespace EM.WindowsForms
             resources.ApplyResources(this.txtPesquisa, "txtPesquisa");
             this.txtPesquisa.Name = "txtPesquisa";
             // 
+            // btnNovo
+            // 
+            this.btnNovo.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            resources.ApplyResources(this.btnNovo, "btnNovo");
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.txtPesquisa);
             this.Controls.Add(this.dgvListaAlunos);
             this.Controls.Add(this.btnExcluir);
@@ -338,6 +366,9 @@ namespace EM.WindowsForms
         private System.Windows.Forms.DataGridViewTextBoxColumn sexoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nascimentoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cPFDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnNovo;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnModificar;
     }
 }
 

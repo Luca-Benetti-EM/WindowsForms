@@ -15,7 +15,6 @@ namespace EM.WindowsForms
 {
     public partial class Form1 : Form
     {
-		private bool Estado = true;
 
 		RepositorioAluno repositorio = new RepositorioAluno();
 
@@ -132,23 +131,28 @@ namespace EM.WindowsForms
 
 		private void btnEditar_Click(object sender, EventArgs e)
 		{
-			if(Estado)
-			{
-				lblNovoAluno.Text = "Editando aluno";
-				btnAdicionar.Text = "Modificar";
-				btnLimpar.Text = "Cancelar";
-				btnEditar.Text = "Novo";
-				Estado = false;
-			}
-			else
-			{
-				lblNovoAluno.Text = "Novo aluno";
-				btnAdicionar.Text = "Adicionar";
-				btnLimpar.Text = "Limpar";
-				btnEditar.Text = "Adicionar";
-				Estado = true;
-			}
-			
+			btnEditar.Enabled = false;
+			btnEditar.Visible = false;
+			btnNovo.Enabled = true;
+			btnNovo.Visible = true;
+
+			btnAdicionar.Enabled = false;
+			btnAdicionar.Visible = false;
+			btnModificar.Enabled = true;
+			btnModificar.Visible = true;
+
+			btnLimpar.Enabled = false;
+			btnLimpar.Visible = false;
+			btnCancelar.Enabled = true;
+			btnCancelar.Visible = true;
+
+			/*
+			string a = dgvListaAlunos.CurrentRow.Cells[0].Value.ToString();
+			string b = dgvListaAlunos.CurrentRow.Cells[1].Value.ToString();
+			string c = dgvListaAlunos.CurrentRow.Cells[2].Value.ToString();
+			string d = dgvListaAlunos.CurrentRow.Cells[3].Value.ToString();
+			string f = dgvListaAlunos.CurrentRow.Cells[4].Value.ToString();
+			*/
 		}
 
 		private void btnExcluir_Click(object sender, EventArgs e)
@@ -160,6 +164,14 @@ namespace EM.WindowsForms
 		private void btnPesquisar_Click(object sender, EventArgs e)
 		{
 
+		}
+
+		private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !(e.KeyChar == (char)Keys.Space))
+			{
+				e.Handled = true;
+			}
 		}
 
 		private bool ValidaCPF(string cpf)
@@ -204,12 +216,22 @@ namespace EM.WindowsForms
 			return true;
 		}
 
-		private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
+		private void btnNovo_Click(object sender, EventArgs e)
 		{
-			if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !(e.KeyChar == (char) Keys.Space))
-			{
-				e.Handled = true;
-			}
+			btnEditar.Enabled = true;
+			btnEditar.Visible = true;
+			btnNovo.Enabled = false;
+			btnNovo.Visible = false;
+
+			btnAdicionar.Enabled = true;
+			btnAdicionar.Visible = true;
+			btnModificar.Enabled = false;
+			btnModificar.Visible = false;
+
+			btnLimpar.Enabled = true;
+			btnLimpar.Visible = true;
+			btnCancelar.Enabled = false;
+			btnModificar.Visible = false;
 		}
 	}
 }
