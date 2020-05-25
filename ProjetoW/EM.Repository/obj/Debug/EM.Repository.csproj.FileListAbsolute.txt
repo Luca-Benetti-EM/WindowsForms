@@ -1,0 +1,51 @@
+C:\Users\Escolar Manager\source\repos\ProjetoW\EM.Repository\bin\Debug\EM.Repository.dll
+C:\Users\Escolar Manager\source\repos\ProjetoW\EM.Repository\bin\Debug\EM.Repository.pdb
+C:\Users\Escolar Manager\source\repos\ProjetoW\EM.Repository\obj\Debug\EM.Repository.csprojAssemblyReference.cache
+C:\Users\Escolar Manager\source\repos\ProjetoW\EM.Repository\obj\Debug\EM.Repository.csproj.CoreCompileInputs.cache
+C:\Users\Escolar Manager\source\repos\ProjetoW\EM.Repository\obj\Debug\EM.Repository.dll
+C:\Users\Escolar Manager\source\repos\ProjetoW\EM.Repository\obj\Debug\EM.Repository.pdb
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.Repository\bin\Debug\EM.Repository.dll
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.Repository\bin\Debug\EM.Repository.pdb
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.Repository\obj\Debug\EM.Repository.csprojAssemblyReference.cache
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.Repository\obj\Debug\EM.Repository.csproj.CoreCompileInputs.cache
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.Repository\obj\Debug\EM.Repository.dll
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.Repository\obj\Debug\EM.Repository.pdb
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.Repository\bin\Debug\EM.Domain.dll
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.Repository\bin\Debug\EM.Domain.pdb
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.Repository\obj\Debug\EM.Repository.csproj.CopyComplete
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.Repository\bin\Debug\EM.Repository.dll
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.Repository\bin\Debug\EM.Repository.pdb
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.Repository\obj\Debug\EM.Repository.csprojAssemblyReference.cache
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.Repository\obj\Debug\EM.Repository.csproj.CoreCompileInputs.cache
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.Repository\obj\Debug\EM.Repository.dll
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.Repository\obj\Debug\EM.Repository.pdb
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.Repository\bin\Debug\EM.Domain.dll
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.Repository\bin\Debug\EM.Domain.pdb
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.Repository\obj\Debug\EM.Repository.csproj.CopyComplete
+C:\Users\Simone\Desktop\ProjetoW\EM.Repository\bin\Debug\EM.Repository.dll
+C:\Users\Simone\Desktop\ProjetoW\EM.Repository\bin\Debug\EM.Repository.pdb
+C:\Users\Simone\Desktop\ProjetoW\EM.Repository\bin\Debug\EM.Domain.dll
+C:\Users\Simone\Desktop\ProjetoW\EM.Repository\bin\Debug\EM.Domain.pdb
+C:\Users\Simone\Desktop\ProjetoW\EM.Repository\obj\Debug\EM.Repository.csprojAssemblyReference.cache
+C:\Users\Simone\Desktop\ProjetoW\EM.Repository\obj\Debug\EM.Repository.csproj.CoreCompileInputs.cache
+C:\Users\Simone\Desktop\ProjetoW\EM.Repository\obj\Debug\EM.Repository.csproj.CopyComplete
+C:\Users\Simone\Desktop\ProjetoW\EM.Repository\obj\Debug\EM.Repository.dll
+C:\Users\Simone\Desktop\ProjetoW\EM.Repository\obj\Debug\EM.Repository.pdb
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.Repository\bin\Debug\EM.Repository.dll
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.Repository\bin\Debug\EM.Repository.pdb
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.Repository\bin\Debug\EM.Domain.dll
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.Repository\bin\Debug\EM.Domain.pdb
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.Repository\obj\Debug\EM.Repository.csprojAssemblyReference.cache
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.Repository\obj\Debug\EM.Repository.csproj.CoreCompileInputs.cache
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.Repository\obj\Debug\EM.Repository.csproj.CopyComplete
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.Repository\obj\Debug\EM.Repository.dll
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.Repository\obj\Debug\EM.Repository.pdb
+C:\work\ProjetoW\EM.Repository\bin\Debug\EM.Repository.dll
+C:\work\ProjetoW\EM.Repository\bin\Debug\EM.Repository.pdb
+C:\work\ProjetoW\EM.Repository\bin\Debug\EM.Domain.dll
+C:\work\ProjetoW\EM.Repository\bin\Debug\EM.Domain.pdb
+C:\work\ProjetoW\EM.Repository\obj\Debug\EM.Repository.csprojAssemblyReference.cache
+C:\work\ProjetoW\EM.Repository\obj\Debug\EM.Repository.csproj.CoreCompileInputs.cache
+C:\work\ProjetoW\EM.Repository\obj\Debug\EM.Repository.csproj.CopyComplete
+C:\work\ProjetoW\EM.Repository\obj\Debug\EM.Repository.dll
+C:\work\ProjetoW\EM.Repository\obj\Debug\EM.Repository.pdb
