@@ -160,25 +160,32 @@ namespace EM.WindowsForms
 
 		private void btnExcluir_Click(object sender, EventArgs e)
 		{
-			//MessageBox.Show("Deseja realmente excluir o aluno?");
+			
 
-			ObterDadosLinha();
+			if (ObterDadosLinha())
+			{
+				string matricula = txtMatricula.Text;
+				string nome = txtNome.Text;
+				EnumeradorSexo sexo = (EnumeradorSexo)cboSexo.SelectedItem;
+				DateTime nascimento = DateTime.ParseExact(txtNascimento.Text, "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("pt-BR")); //Data convertida para padrões BR
+				string CPF = txtCPF.Text;
 
-			string matricula = txtMatricula.Text;
-			string nome = txtNome.Text;
-			EnumeradorSexo sexo = (EnumeradorSexo)cboSexo.SelectedItem;
-			DateTime nascimento = DateTime.ParseExact(txtNascimento.Text, "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("pt-BR")); //Data convertida para padrões BR
-			string CPF = txtCPF.Text;
+				if (!(CPF == "")) CPF = Convert.ToUInt64(CPF).ToString(@"000\.000\.000\-00");
 
-			if(!(CPF == "")) CPF = Convert.ToUInt64(CPF).ToString(@"000\.000\.000\-00");
+				Aluno teste = new Aluno(Convert.ToInt32(matricula), nome, nascimento, CPF, sexo);
+				repositorio.Remove(teste);
 
-			Aluno teste = new Aluno(Convert.ToInt32(matricula), nome, nascimento, CPF, sexo);
-			repositorio.Remove(teste);
+				//BindingSource e DataGridView são atualizados
+				BindingSource bsListaAlunos = new BindingSource();
+				bsListaAlunos.DataSource = repositorio.GetAll();
+				dgvListaAlunos.DataSource = bsListaAlunos;
+			}
 
-			//BindingSource e DataGridView são atualizados
-			BindingSource bsListaAlunos = new BindingSource();
-			bsListaAlunos.DataSource = repositorio.GetAll();
-			dgvListaAlunos.DataSource = bsListaAlunos;
+			else
+			{
+				MessageBox.Show("Não é possível realizar a exclusão pois dados não foram cadastrados!");
+			}
+			
 		}
 
 
@@ -289,7 +296,11 @@ namespace EM.WindowsForms
 			}
 		}
 
-		private void ObterDadosLinha() {
+		//Verifica se existem dados no DataGridView para serem recebidos pelo painel, se verdadeiro, preenche os campos com a linha selecionada
+		private bool ObterDadosLinha() {
+			if (repositorio.GetAll().Count() == 0) {
+				return false;
+			}
 			txtMatricula.Text = dgvListaAlunos.CurrentRow.Cells[0].Value.ToString();
 			txtNome.Text = dgvListaAlunos.CurrentRow.Cells[1].Value.ToString();
 			cboSexo.SelectedItem = dgvListaAlunos.CurrentRow.Cells[2].Value;
@@ -307,6 +318,8 @@ namespace EM.WindowsForms
 			{
 				txtCPF.Text = "";
 			}
+
+			return true;
 		}
 	}
 }

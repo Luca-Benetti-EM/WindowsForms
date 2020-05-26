@@ -10,21 +10,13 @@ namespace EM.Repository
 {
     public class RepositorioAluno : RepositorioAbstrato<Aluno>
     {
-        public static Aluno aluno = new Aluno(1, "joao", new DateTime(2000-01-25), "", EnumeradorSexo.Masculino);
         public Aluno GetByMatricula(int matricula)
         {
-            /*var query = from Aluno a in lista
+            var query = from aluno in lista
                         where aluno.Matricula == matricula
-                        select a;
+                        select aluno;
 
-            aluno = query.ToList()[0];*/
-
-            for(int i = 0; i < lista.Count; i++)
-            {
-                if (lista[i].Matricula == matricula) return lista[i];
-            }
-
-            return aluno;
+            return query.ToList()[0];                         
     }
 
         public static IEnumerable<Aluno> GetByContendoNoNome(string parteDoNome)
