@@ -40,10 +40,9 @@ namespace EM.Repository
 
         public IEnumerable<T> Get(Expression<Func<T, bool>> predicate) 
         {
+            List<T> lista = new List<T>();
             var query = lista.Where(predicate.Compile()).ToList();
-
-            if(query.Count() == 0) return null;
-
+                
             return query;
         }
     }
