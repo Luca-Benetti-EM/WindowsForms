@@ -16,7 +16,7 @@ namespace EM.Repository
                         where aluno.Matricula == matricula
                         select aluno;
 
-            return query.ToList()[0];                         
+            return query.ToList().SingleOrDefault();
     }
 
         public static IEnumerable<Aluno> GetByContendoNoNome(string parteDoNome)

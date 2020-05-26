@@ -37,7 +37,13 @@ namespace EM.WindowsForms
 
 		private void btnAdicionar_Click(object sender, EventArgs e)
 		{
-			//Validando entradas	
+			//Validando entradas
+			if (txtMatricula.Text == "" && txtNome.Text == "")
+			{
+				MessageBox.Show("Campos não preenchidos");
+				return;
+			}
+
 			try
 			{
 				string matricula = txtMatricula.Text;
@@ -84,9 +90,22 @@ namespace EM.WindowsForms
 
 				}
 
-				//Passando todos os testes, cria um novo aluno e o insere na lista
+				//Passando todos os testes, cria um novo objeto aluno
 				Aluno teste = new Aluno(Convert.ToInt32(matricula), nome, nascimento, CPF, sexo);
-				repositorio.Add(teste);
+
+				//Verifica se matricula não está cadastrada, inserindo objeto aluno na lista
+				if (repositorio.GetByMatricula(teste.Matricula) == null)
+				{
+					repositorio.Add(teste);
+				}
+
+				else
+				{
+					MessageBox.Show("Matrícula já cadastrada, altere para inserir novo aluno");
+					txtMatricula.Focus();
+				}
+
+				
 			}
 
 			catch (Exception)
