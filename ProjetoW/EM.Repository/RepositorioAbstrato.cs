@@ -11,7 +11,7 @@ namespace EM.Repository
 {
     public abstract class RepositorioAbstrato<T> where T : IEntidade
     {
-        public static BindingList<T> lista = new BindingList<T>();
+        protected static BindingList<T> lista = new BindingList<T>();
 
         public void Add(T objeto)
         {

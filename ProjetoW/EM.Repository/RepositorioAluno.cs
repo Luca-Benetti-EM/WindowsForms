@@ -19,10 +19,14 @@ namespace EM.Repository
             return query.ToList().SingleOrDefault();
     }
 
-        public static IEnumerable<Aluno> GetByContendoNoNome(string parteDoNome)
+        public IEnumerable<Aluno> GetByContendoNoNome(string parteDoNome)
         {
-            List<Aluno> lista = new List<Aluno>();
-            return lista;
+
+            var query = from aluno in lista
+                        where aluno.Nome.Contains(parteDoNome) || aluno.Nome.Contains(parteDoNome.ToLower()) || aluno.Nome.Contains(parteDoNome.ToUpper())
+                        select aluno;
+
+            return query.ToList();
         }
 
         

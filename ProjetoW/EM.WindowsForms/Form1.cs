@@ -16,7 +16,7 @@ namespace EM.WindowsForms
 	public partial class Form1 : Form
 	{
 
-		RepositorioAluno repositorio = new RepositorioAluno();
+		private RepositorioAluno repositorio = new RepositorioAluno();
 
 		public Form1()
 		{
@@ -109,7 +109,7 @@ namespace EM.WindowsForms
 					return;
 				}
 
-				//Passando todos os casos, insere aluno
+				//Passando todos os casos, insere novo aluno
 				repositorio.Add(novoAluno);
 
 			}
@@ -220,7 +220,10 @@ namespace EM.WindowsForms
 
 		private void btnPesquisar_Click(object sender, EventArgs e)
 		{
-
+			//BindingSource e DataGridView são atualizados
+			BindingSource bsListaAlunos = new BindingSource();
+			bsListaAlunos.DataSource = repositorio.GetByContendoNoNome(txtPesquisa.Text);
+			dgvListaAlunos.DataSource = bsListaAlunos;
 		}
 
 		private void txtNome_KeyPress(object sender, KeyPressEventArgs e)
