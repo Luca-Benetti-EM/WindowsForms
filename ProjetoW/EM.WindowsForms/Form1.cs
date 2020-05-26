@@ -91,10 +91,10 @@ namespace EM.WindowsForms
 				}
 
 				//Passando todos os testes, cria um novo objeto aluno
-				Aluno teste = new Aluno(Convert.ToInt32(matricula), nome, nascimento, CPF, sexo);
+				Aluno novoAluno = new Aluno(Convert.ToInt32(matricula), nome, nascimento, CPF, sexo);
 
 				//Verifica se matricula não está cadastrada
-				if (repositorio.GetByMatricula(teste.Matricula) != null)
+				if (repositorio.Get(a => a.Matricula == novoAluno.Matricula) != null)
 				{
 					MessageBox.Show("Matrícula já cadastrada, altere para inserir novo aluno");
 					txtMatricula.Focus();
@@ -102,7 +102,7 @@ namespace EM.WindowsForms
 				}
 
 				//Verifica se CPF não está cadastrado
-				if(repositorio.Get(a => a.CPF == teste.CPF) != null)
+				if(repositorio.Get(a => a.CPF == novoAluno.CPF) != null && (txtCPF.Text != ""))
 				{
 					MessageBox.Show("CPF já cadastrado");
 					txtMatricula.Focus();
@@ -110,7 +110,7 @@ namespace EM.WindowsForms
 				}
 
 				//Passando todos os casos, insere aluno
-				repositorio.Add(teste);
+				repositorio.Add(novoAluno);
 
 			}
 
