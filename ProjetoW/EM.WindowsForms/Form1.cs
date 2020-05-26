@@ -164,21 +164,25 @@ namespace EM.WindowsForms
 
 			if (ObterDadosLinha())
 			{
-				string matricula = txtMatricula.Text;
-				string nome = txtNome.Text;
-				EnumeradorSexo sexo = (EnumeradorSexo)cboSexo.SelectedItem;
-				DateTime nascimento = DateTime.ParseExact(txtNascimento.Text, "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("pt-BR")); //Data convertida para padrões BR
-				string CPF = txtCPF.Text;
+				if(MessageBox.Show("Tem certeza que deseja realizar a exclusão do aluno?", "Atenção", MessageBoxButtons.YesNo) == DialogResult.Yes)
+				{
+					string matricula = txtMatricula.Text;
+					string nome = txtNome.Text;
+					EnumeradorSexo sexo = (EnumeradorSexo)cboSexo.SelectedItem;
+					DateTime nascimento = DateTime.ParseExact(txtNascimento.Text, "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("pt-BR")); //Data convertida para padrões BR
+					string CPF = txtCPF.Text;
 
-				if (!(CPF == "")) CPF = Convert.ToUInt64(CPF).ToString(@"000\.000\.000\-00");
+					if (!(CPF == "")) CPF = Convert.ToUInt64(CPF).ToString(@"000\.000\.000\-00");
 
-				Aluno teste = new Aluno(Convert.ToInt32(matricula), nome, nascimento, CPF, sexo);
-				repositorio.Remove(teste);
+					Aluno teste = new Aluno(Convert.ToInt32(matricula), nome, nascimento, CPF, sexo);
+					repositorio.Remove(teste);
 
-				//BindingSource e DataGridView são atualizados
-				BindingSource bsListaAlunos = new BindingSource();
-				bsListaAlunos.DataSource = repositorio.GetAll();
-				dgvListaAlunos.DataSource = bsListaAlunos;
+					//BindingSource e DataGridView são atualizados
+					BindingSource bsListaAlunos = new BindingSource();
+					bsListaAlunos.DataSource = repositorio.GetAll();
+					dgvListaAlunos.DataSource = bsListaAlunos;
+				}
+				
 			}
 
 			else
