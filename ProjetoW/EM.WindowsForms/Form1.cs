@@ -40,17 +40,17 @@ namespace EM.WindowsForms
 			//Validando entradas	
 			try
 			{
-
-				DateTime nascimento = DateTime.ParseExact(txtNascimento.Text, "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("pt-BR")); //Data convertida para padrões BR
-				string CPF = txtCPF.Text;
 				string matricula = txtMatricula.Text;
 				string nome = txtNome.Text;
 				EnumeradorSexo sexo = (EnumeradorSexo)cboSexo.SelectedItem;
+				DateTime nascimento = DateTime.ParseExact(txtNascimento.Text, "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("pt-BR")); //Data convertida para padrões BR
+				string CPF = txtCPF.Text;
 
 				//Validando matricula
 				if (matricula == "") //Não aceita matrícula vazia
 				{
 					MessageBox.Show("Matrícula não inserida");
+					txtMatricula.Focus();
 					return;
 				}
 
@@ -58,6 +58,7 @@ namespace EM.WindowsForms
 				if (nome == "") //Não aceita nome vazio
 				{
 					MessageBox.Show("Nome não inserido");
+					txtNome.Focus();
 					return;
 				}
 
@@ -65,6 +66,7 @@ namespace EM.WindowsForms
 				if (!ValidaData(nascimento))
 				{
 					MessageBox.Show("Não é possível adicionar uma data de nascimento futura");
+					txtNascimento.Focus();
 					return;
 				}
 
@@ -76,6 +78,7 @@ namespace EM.WindowsForms
 					if (!(ValidaCPF(CPF)))
 					{
 						MessageBox.Show("CPF não é válido");
+						txtCPF.Focus();
 						return;
 					}
 
@@ -146,13 +149,13 @@ namespace EM.WindowsForms
 			btnCancelar.Enabled = true;
 			btnCancelar.Visible = true;
 
-			/*
-			string a = dgvListaAlunos.CurrentRow.Cells[0].Value.ToString();
-			string b = dgvListaAlunos.CurrentRow.Cells[1].Value.ToString();
-			string c = dgvListaAlunos.CurrentRow.Cells[2].Value.ToString();
-			string d = dgvListaAlunos.CurrentRow.Cells[3].Value.ToString();
-			string f = dgvListaAlunos.CurrentRow.Cells[4].Value.ToString();
-			*/
+			txtMatricula.Text = "";
+			txtNome.Text = "";
+			cboSexo.SelectedItem = "";
+			txtNascimento.Text = "";
+
+			txtMatricula.Enabled = false;
+
 		}
 
 		private void btnExcluir_Click(object sender, EventArgs e)
@@ -218,6 +221,7 @@ namespace EM.WindowsForms
 
 		private void btnNovo_Click(object sender, EventArgs e)
 		{
+			txtMatricula.Enabled = true;
 			btnEditar.Enabled = true;
 			btnEditar.Visible = true;
 			btnNovo.Enabled = false;
@@ -231,7 +235,56 @@ namespace EM.WindowsForms
 			btnLimpar.Enabled = true;
 			btnLimpar.Visible = true;
 			btnCancelar.Enabled = false;
-			btnModificar.Visible = false;
+			btnCancelar.Visible = false;
+		}
+
+		private void btnLimpar_Click(object sender, EventArgs e)
+		{
+			txtMatricula.Text = "";
+			txtNome.Text = "";
+			cboSexo.SelectedItem = EnumeradorSexo.Masculino;
+			txtNascimento.Text = "";
+			txtCPF.Text = "";
+			txtMatricula.Focus();
+		}
+
+		private void btnCancelar_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnModificar_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void dgvListaAlunos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+		{
+
+		}
+
+		private void dgvListaAlunos_CellClick(object sender, DataGridViewCellEventArgs e)
+		{
+			if(btnNovo.Enabled)
+			{
+				txtMatricula.Text = dgvListaAlunos.CurrentRow.Cells[0].Value.ToString();
+				txtNome.Text = dgvListaAlunos.CurrentRow.Cells[1].Value.ToString();
+				cboSexo.SelectedItem = dgvListaAlunos.CurrentRow.Cells[2].Value;
+				txtNascimento.Text = dgvListaAlunos.CurrentRow.Cells[3].Value.ToString();
+
+				if (!(dgvListaAlunos.CurrentRow.Cells[4].Value.ToString() == "")) //Se houver CPF, retorna apenas os números ao editar
+				{
+					txtCPF.Text = dgvListaAlunos.CurrentRow.Cells[4].Value.ToString().Substring(0, 3)
+					+ dgvListaAlunos.CurrentRow.Cells[4].Value.ToString().Substring(4, 3)
+					+ dgvListaAlunos.CurrentRow.Cells[4].Value.ToString().Substring(8, 3)
+					+ dgvListaAlunos.CurrentRow.Cells[4].Value.ToString().Substring(12, 2);
+				}
+
+				else
+				{
+					txtCPF.Text = "";
+				}
+			}
 		}
 	}
 }
