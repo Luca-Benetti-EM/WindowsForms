@@ -13,17 +13,17 @@ using System.Globalization;
 
 namespace EM.WindowsForms
 {
-    public partial class Form1 : Form
-    {
+	public partial class Form1 : Form
+	{
 
 		RepositorioAluno repositorio = new RepositorioAluno();
 
 		public Form1()
-        {
-            InitializeComponent();
+		{
+			InitializeComponent();
 
 			cboSexo.DataSource = Enum.GetValues(typeof(EnumeradorSexo));
-        }
+		}
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
@@ -102,17 +102,17 @@ namespace EM.WindowsForms
 
 		}
 
-        private void maskedTextBox2_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-			
-        }
+		private void maskedTextBox2_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+		{
 
-        private void txtNascimento_Leave(object sender, EventArgs e)
-        {
+		}
+
+		private void txtNascimento_Leave(object sender, EventArgs e)
+		{
 			if (!txtNascimento.MaskCompleted)
 			{
 				MessageBox.Show("Data não preenchida corretamente");
-				
+
 			}
 		}
 
@@ -160,7 +160,25 @@ namespace EM.WindowsForms
 
 		private void btnExcluir_Click(object sender, EventArgs e)
 		{
-			MessageBox.Show("Deseja realmente excluir o aluno?");
+			//MessageBox.Show("Deseja realmente excluir o aluno?");
+
+			ObterDadosLinha();
+
+			string matricula = txtMatricula.Text;
+			string nome = txtNome.Text;
+			EnumeradorSexo sexo = (EnumeradorSexo)cboSexo.SelectedItem;
+			DateTime nascimento = DateTime.ParseExact(txtNascimento.Text, "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("pt-BR")); //Data convertida para padrões BR
+			string CPF = txtCPF.Text;
+
+			if(!(CPF == "")) CPF = Convert.ToUInt64(CPF).ToString(@"000\.000\.000\-00");
+
+			Aluno teste = new Aluno(Convert.ToInt32(matricula), nome, nascimento, CPF, sexo);
+			repositorio.Remove(teste);
+
+			//BindingSource e DataGridView são atualizados
+			BindingSource bsListaAlunos = new BindingSource();
+			bsListaAlunos.DataSource = repositorio.GetAll();
+			dgvListaAlunos.DataSource = bsListaAlunos;
 		}
 
 
@@ -265,25 +283,29 @@ namespace EM.WindowsForms
 
 		private void dgvListaAlunos_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			if(btnNovo.Enabled)
+			if (btnNovo.Enabled)
 			{
-				txtMatricula.Text = dgvListaAlunos.CurrentRow.Cells[0].Value.ToString();
-				txtNome.Text = dgvListaAlunos.CurrentRow.Cells[1].Value.ToString();
-				cboSexo.SelectedItem = dgvListaAlunos.CurrentRow.Cells[2].Value;
-				txtNascimento.Text = dgvListaAlunos.CurrentRow.Cells[3].Value.ToString();
+				ObterDadosLinha();
+			}
+		}
 
-				if (!(dgvListaAlunos.CurrentRow.Cells[4].Value.ToString() == "")) //Se houver CPF, retorna apenas os números ao editar
-				{
-					txtCPF.Text = dgvListaAlunos.CurrentRow.Cells[4].Value.ToString().Substring(0, 3)
-					+ dgvListaAlunos.CurrentRow.Cells[4].Value.ToString().Substring(4, 3)
-					+ dgvListaAlunos.CurrentRow.Cells[4].Value.ToString().Substring(8, 3)
-					+ dgvListaAlunos.CurrentRow.Cells[4].Value.ToString().Substring(12, 2);
-				}
+		private void ObterDadosLinha() {
+			txtMatricula.Text = dgvListaAlunos.CurrentRow.Cells[0].Value.ToString();
+			txtNome.Text = dgvListaAlunos.CurrentRow.Cells[1].Value.ToString();
+			cboSexo.SelectedItem = dgvListaAlunos.CurrentRow.Cells[2].Value;
+			txtNascimento.Text = dgvListaAlunos.CurrentRow.Cells[3].Value.ToString();
 
-				else
-				{
-					txtCPF.Text = "";
-				}
+			if (!(dgvListaAlunos.CurrentRow.Cells[4].Value.ToString() == "")) //Se houver CPF, retorna apenas os números ao editar
+			{
+				txtCPF.Text = dgvListaAlunos.CurrentRow.Cells[4].Value.ToString().Substring(0, 3)
+				+ dgvListaAlunos.CurrentRow.Cells[4].Value.ToString().Substring(4, 3)
+				+ dgvListaAlunos.CurrentRow.Cells[4].Value.ToString().Substring(8, 3)
+				+ dgvListaAlunos.CurrentRow.Cells[4].Value.ToString().Substring(12, 2);
+			}
+
+			else
+			{
+				txtCPF.Text = "";
 			}
 		}
 	}

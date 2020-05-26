@@ -21,7 +21,7 @@ namespace EM.Domain
         private string _cpf;
 
         public Aluno (int matricula, string nome, DateTime nascimento, string cpf, EnumeradorSexo sexo) {
-            this.Matricula = matricula;
+            Matricula = matricula;
             this.Nome = nome;
             this.Nascimento = nascimento;
             this.CPF = cpf;
