@@ -38,7 +38,11 @@ namespace EM.WindowsForms
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
+            string matricula = txtMatricula.Text;
+            string nome = txtNome.Text;
             DateTime nascimento = new DateTime();
+            EnumeradorSexo sexo = (EnumeradorSexo)cboSexo.SelectedItem;
+            string CPF = txtCPF.Text;
 
             try
             {
@@ -51,13 +55,8 @@ namespace EM.WindowsForms
                 MessageBox.Show("Data não preenchida corretamente");
             }
 
-            string matricula = txtMatricula.Text;
-            string nome = txtNome.Text;
-            EnumeradorSexo sexo = (EnumeradorSexo)cboSexo.SelectedItem;
-            string CPF = txtCPF.Text;
-
             //Validando matricula
-            if (matricula == "") //Não aceita matrícula vazia
+            if (StringVazia(matricula)) //Não aceita matrícula vazia
             {
                 MessageBox.Show("Matrícula não inserida");
                 txtMatricula.Focus();
@@ -65,7 +64,7 @@ namespace EM.WindowsForms
             }
 
             //Validando nome
-            if (nome == "") //Não aceita nome vazio
+            if (StringVazia(nome)) //Não aceita nome vazio
             {
                 MessageBox.Show("Nome não inserido");
                 txtNome.Focus();
@@ -81,9 +80,9 @@ namespace EM.WindowsForms
             }
 
             //Validando CPF
-            if (!(CPF == "")) //Aceita CPF Vazio, mas valida quando há algo inserido
+            if (!(StringVazia(CPF))) //Aceita CPF Vazio, mas valida quando há algo inserido
             {
-                CPF = Convert.ToUInt64(CPF).ToString(@"000\.000\.000\-00");
+                CPF = ConverteParaCPF(CPF);
 
                 if (!(ValidaCPF(CPF)))
                 {
@@ -106,7 +105,7 @@ namespace EM.WindowsForms
             }
 
             //Verifica se CPF não está cadastrado
-            if (repositorio.Get(a => a.CPF == novoAluno.CPF) != null && (txtCPF.Text != ""))
+            if (repositorio.Get(a => a.CPF == novoAluno.CPF) != null && (StringVazia(txtCPF.Text)))
             {
                 MessageBox.Show("CPF já cadastrado");
                 txtMatricula.Focus();
@@ -115,10 +114,6 @@ namespace EM.WindowsForms
 
             //Passando todos os casos, insere novo aluno
             repositorio.Add(novoAluno);
-
-
-
-
 
             //BindingSource e DataGridView são atualizados
             bsListaAlunos.DataSource = repositorio.GetAll();
@@ -330,6 +325,11 @@ namespace EM.WindowsForms
             }
         }
 
+        private string ConverteParaCPF(string entrada)
+        {
+            return Convert.ToUInt64(entrada).ToString(@"000\.000\.000\-00");
+        }
+
         //Verifica se existem dados no DataGridView para serem recebidos pelo painel, se verdadeiro, preenche os campos com a linha selecionada
         private bool ObterDadosLinha()
         {
@@ -356,6 +356,12 @@ namespace EM.WindowsForms
             }
 
             return true;
+        }
+
+        private bool StringVazia(string entrada)
+        {
+            if (entrada == "") return true;
+            else return false;
         }
     }
 }
