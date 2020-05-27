@@ -38,18 +38,18 @@ namespace EM.WindowsForms
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            string matricula = txtMatricula.Text;
+            int matricula;
             string nome = txtNome.Text;
             DateTime nascimento = ConverteParaData(txtNascimento.Text);
             EnumeradorSexo sexo = (EnumeradorSexo)cboSexo.SelectedItem;
             string CPF = ConverteParaCPF(txtCPF.Text);
 
-            if (StringVazia(matricula))
+            if (StringVazia(txtMatricula.Text))
             {
                 MessageBox.Show("Matrícula não inserida");
                 txtMatricula.Focus();
                 return;
-            }
+            } matricula = Convert.ToInt32(txtMatricula.Text);
 
             if (StringVazia(nome))
             {
@@ -72,19 +72,14 @@ namespace EM.WindowsForms
                 return;
             }
 
-            //Passando todos os testes, cria um novo objeto aluno
-            Aluno novoAluno = new Aluno(Convert.ToInt32(matricula), nome, nascimento, CPF, sexo);
-
-            //Verifica se matricula não está cadastrada
-            if (repositorio.Get(a => a.Matricula == novoAluno.Matricula) != null)
-            {
+            if(MatriculaJaCadastrada(matricula)) {
                 MessageBox.Show("Matrícula já cadastrada, altere para inserir novo aluno");
                 txtMatricula.Focus();
                 return;
             }
+            
 
-            //Verifica se CPF não está cadastrado
-            if (repositorio.Get(a => a.CPF == novoAluno.CPF) != null)
+            if(CPFJaCadastrado(CPF))
             {
                 MessageBox.Show("CPF já cadastrado");
                 txtMatricula.Focus();
@@ -92,7 +87,7 @@ namespace EM.WindowsForms
             }
 
             //Passando todos os casos, insere novo aluno
-            repositorio.Add(novoAluno);
+            repositorio.Add(new Aluno(matricula, nome, nascimento, CPF, sexo));
 
             //BindingSource e DataGridView são atualizados
             bsListaAlunos.DataSource = repositorio.GetAll();
@@ -361,6 +356,32 @@ namespace EM.WindowsForms
             }
 
             return data;
+        }
+
+        private bool MatriculaJaCadastrada(int matricula)
+        {
+            Aluno aluno = new Aluno(matricula, "", new DateTime(), "", EnumeradorSexo.Masculino);
+
+            if (repositorio.Get(a => a.Matricula == aluno.Matricula) != null)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool CPFJaCadastrado(string cpf)
+        {
+            if (StringVazia(cpf)) return false;
+
+            Aluno aluno = new Aluno(0, "", new DateTime(), cpf, EnumeradorSexo.Masculino);
+
+            if (repositorio.Get(a => a.CPF == aluno.CPF) != null)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }
