@@ -44,14 +44,14 @@ namespace EM.WindowsForms
             EnumeradorSexo sexo = (EnumeradorSexo)cboSexo.SelectedItem;
             string CPF = ConverteParaCPF(txtCPF.Text);
 
-            if (StringVazia(matricula)) //Não aceita matrícula vazia
+            if (StringVazia(matricula))
             {
                 MessageBox.Show("Matrícula não inserida");
                 txtMatricula.Focus();
                 return;
             }
 
-            if (StringVazia(nome)) //Não aceita nome vazio
+            if (StringVazia(nome))
             {
                 MessageBox.Show("Nome não inserido");
                 txtNome.Focus();
@@ -65,16 +65,11 @@ namespace EM.WindowsForms
                 return;
             }
 
-            if (!(StringVazia(CPF))) //Aceita CPF Vazio, mas valida quando há algo inserido
+            if (!(ValidaCPF(CPF))) //Aceita CPF Vazio, mas valida quando há algo inserido
             {
-
-                if (!(ValidaCPF(CPF)))
-                {
-                    MessageBox.Show("CPF não é válido");
-                    txtCPF.Focus();
-                    return;
-                }
-
+                MessageBox.Show("CPF não é válido");
+                txtCPF.Focus();
+                return;
             }
 
             //Passando todos os testes, cria um novo objeto aluno
@@ -89,7 +84,7 @@ namespace EM.WindowsForms
             }
 
             //Verifica se CPF não está cadastrado
-            if (repositorio.Get(a => a.CPF == novoAluno.CPF) != null && (StringVazia(txtCPF.Text)))
+            if (repositorio.Get(a => a.CPF == novoAluno.CPF) != null)
             {
                 MessageBox.Show("CPF já cadastrado");
                 txtMatricula.Focus();
@@ -217,6 +212,7 @@ namespace EM.WindowsForms
 
         private bool ValidaCPF(string cpf)
         {
+            if (StringVazia(cpf)) return true;
             int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
             string tempCpf;
