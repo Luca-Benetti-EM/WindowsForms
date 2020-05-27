@@ -31,7 +31,8 @@ namespace EM.Repository
         }
 
         public void Update(T objeto) {
-
+            Remove(objeto);
+            Add(objeto);
         }
 
         public IEnumerable<T> GetAll() {
