@@ -15,6 +15,7 @@ namespace EM.WindowsForms
 {
 	public partial class Form1 : Form
 	{
+		BindingSource bsListaAlunos = new BindingSource();
 
 		private RepositorioAluno repositorio = new RepositorioAluno();
 
@@ -120,7 +121,6 @@ namespace EM.WindowsForms
 			}
 
 			//BindingSource e DataGridView são atualizados
-			BindingSource bsListaAlunos = new BindingSource();
 			bsListaAlunos.DataSource = repositorio.GetAll();
 			dgvListaAlunos.DataSource = bsListaAlunos;
 
@@ -187,23 +187,14 @@ namespace EM.WindowsForms
 		{
 			
 
-			if (ObterDadosLinha())
+			if (!(bsListaAlunos.Count == 0))
 			{
 				if(MessageBox.Show("Tem certeza que deseja realizar a exclusão do aluno?", "Atenção", MessageBoxButtons.YesNo) == DialogResult.Yes)
 				{
-					string matricula = txtMatricula.Text;
-					string nome = txtNome.Text;
-					EnumeradorSexo sexo = (EnumeradorSexo)cboSexo.SelectedItem;
-					DateTime nascimento = DateTime.ParseExact(txtNascimento.Text, "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("pt-BR")); //Data convertida para padrões BR
-					string CPF = txtCPF.Text;
 
-					if (!(CPF == "")) CPF = Convert.ToUInt64(CPF).ToString(@"000\.000\.000\-00");
-
-					Aluno teste = new Aluno(Convert.ToInt32(matricula), nome, nascimento, CPF, sexo);
-					repositorio.Remove(teste);
+					repositorio.Remove(repositorio.GetByMatricula((int)dgvListaAlunos.CurrentRow.Cells[0].Value));
 
 					//BindingSource e DataGridView são atualizados
-					BindingSource bsListaAlunos = new BindingSource();
 					bsListaAlunos.DataSource = repositorio.GetAll();
 					dgvListaAlunos.DataSource = bsListaAlunos;
 				}
@@ -212,7 +203,7 @@ namespace EM.WindowsForms
 
 			else
 			{
-				MessageBox.Show("Não é possível realizar a exclusão pois dados não foram cadastrados!");
+				MessageBox.Show("Não é possível realizar a exclusão pois nenhum aluno foi selecionado!");
 			}
 			
 		}
@@ -221,7 +212,6 @@ namespace EM.WindowsForms
 		private void btnPesquisar_Click(object sender, EventArgs e)
 		{
 			//BindingSource e DataGridView são atualizados
-			BindingSource bsListaAlunos = new BindingSource();
 			bsListaAlunos.DataSource = repositorio.GetByContendoNoNome(txtPesquisa.Text);
 			dgvListaAlunos.DataSource = bsListaAlunos;
 		}
@@ -330,7 +320,7 @@ namespace EM.WindowsForms
 
 		//Verifica se existem dados no DataGridView para serem recebidos pelo painel, se verdadeiro, preenche os campos com a linha selecionada
 		private bool ObterDadosLinha() {
-			if (repositorio.GetAll().Count() == 0) {
+			if (bsListaAlunos.Count == 0) {
 				return false;
 			}
 			txtMatricula.Text = dgvListaAlunos.CurrentRow.Cells[0].Value.ToString();
