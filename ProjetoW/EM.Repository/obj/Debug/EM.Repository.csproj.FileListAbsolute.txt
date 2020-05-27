@@ -58,3 +58,5 @@ C:\work\WindowsForms\ProjetoW\EM.Repository\obj\Debug\EM.Repository.csproj.CoreC
 C:\work\WindowsForms\ProjetoW\EM.Repository\obj\Debug\EM.Repository.csproj.CopyComplete
 C:\work\WindowsForms\ProjetoW\EM.Repository\obj\Debug\EM.Repository.dll
 C:\work\WindowsForms\ProjetoW\EM.Repository\obj\Debug\EM.Repository.pdb
+C:\work\WindowsForms\ProjetoW\EM.Repository\bin\Debug\EM.MetodosExtensao.dll
+C:\work\WindowsForms\ProjetoW\EM.Repository\bin\Debug\EM.MetodosExtensao.pdb

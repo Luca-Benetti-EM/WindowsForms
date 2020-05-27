@@ -5,15 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EM.Repository
+namespace EM.MetodosExtensao
 {
     public static class MetodosExtensao
     {
-        public static bool CustomContains(this string source, string toCheck)
+        public static bool ContainsTodasVariacoes(this string nome, string pesquisa)
         {
             CompareInfo ci = new CultureInfo("pt-BR").CompareInfo;
             CompareOptions co = CompareOptions.IgnoreCase | CompareOptions.IgnoreNonSpace;
-            return ci.IndexOf(source, toCheck, co) != -1;
+            return ci.IndexOf(nome, pesquisa, co) != -1;
         }
     }
 }

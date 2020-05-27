@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Globalization;
+using EM.MetodosExtensao;
 
 namespace EM.Repository
 {
@@ -24,7 +25,7 @@ namespace EM.Repository
         {
 
             var query = from aluno in lista
-                        where aluno.Nome.CustomContains(parteDoNome)
+                        where aluno.Nome.ContainsTodasVariacoes(parteDoNome)
                         select aluno;
 
             return query.ToList();
