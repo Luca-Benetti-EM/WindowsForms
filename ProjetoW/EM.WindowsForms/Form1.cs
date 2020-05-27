@@ -272,7 +272,7 @@ namespace EM.WindowsForms
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            btnNovo_Click(sender, e);
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
