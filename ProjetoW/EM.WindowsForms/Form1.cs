@@ -42,11 +42,8 @@ namespace EM.WindowsForms
             string nome = txtNome.Text;
             DateTime nascimento = ConverteParaData(txtNascimento.Text);
             EnumeradorSexo sexo = (EnumeradorSexo)cboSexo.SelectedItem;
-            string CPF = txtCPF.Text;
+            string CPF = ConverteParaCPF(txtCPF.Text);
 
-            
-
-            //Validando matricula
             if (StringVazia(matricula)) //Não aceita matrícula vazia
             {
                 MessageBox.Show("Matrícula não inserida");
@@ -54,7 +51,6 @@ namespace EM.WindowsForms
                 return;
             }
 
-            //Validando nome
             if (StringVazia(nome)) //Não aceita nome vazio
             {
                 MessageBox.Show("Nome não inserido");
@@ -62,7 +58,6 @@ namespace EM.WindowsForms
                 return;
             }
 
-            //Validando nascimento
             if (!ValidaData(nascimento))
             {
                 MessageBox.Show("Data inserida incorretamente ou data futura");
@@ -70,10 +65,8 @@ namespace EM.WindowsForms
                 return;
             }
 
-            //Validando CPF
             if (!(StringVazia(CPF))) //Aceita CPF Vazio, mas valida quando há algo inserido
             {
-                CPF = ConverteParaCPF(CPF);
 
                 if (!(ValidaCPF(CPF)))
                 {
@@ -319,7 +312,8 @@ namespace EM.WindowsForms
 
         private string ConverteParaCPF(string entrada)
         {
-            return Convert.ToUInt64(entrada).ToString(@"000\.000\.000\-00");
+            if (StringVazia(entrada)) return entrada;
+            else return Convert.ToUInt64(entrada).ToString(@"000\.000\.000\-00");
         }
 
         //Verifica se existem dados no DataGridView para serem recebidos pelo painel, se verdadeiro, preenche os campos com a linha selecionada
