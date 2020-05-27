@@ -65,7 +65,7 @@ namespace EM.WindowsForms
                 return;
             }
 
-            if (!(ValidaCPF(CPF))) //Aceita CPF Vazio, mas valida quando há algo inserido
+            if (!(ValidaCPF(CPF)))
             {
                 MessageBox.Show("CPF não é válido");
                 txtCPF.Focus();
@@ -88,10 +88,8 @@ namespace EM.WindowsForms
 
             repositorio.Add(new Aluno(matricula, nome, nascimento, CPF, sexo));
 
-            //BindingSource e DataGridView são atualizados
             bsListaAlunos.DataSource = repositorio.GetAll();
             AtualizaDGV();
-
 
         }
 
@@ -282,7 +280,47 @@ namespace EM.WindowsForms
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            //string matricula = txtMatricula.Text;
+            string nome = txtNome.Text;
+            DateTime nascimento = ConverteParaData(txtNascimento.Text);
+            EnumeradorSexo sexo = (EnumeradorSexo)cboSexo.SelectedItem;
+            string CPF = ConverteParaCPF(txtCPF.Text);
 
+            Aluno aluno = repositorio.GetByMatricula((int)dgvListaAlunos.CurrentRow.Cells[0].Value);
+
+            if (StringVazia(nome))
+            {
+                MessageBox.Show("Nome não inserido");
+                txtNome.Focus();
+                return;
+            }
+
+            if (!ValidaData(nascimento))
+            {
+                MessageBox.Show("Data inserida incorretamente ou data futura");
+                txtNascimento.Focus();
+                return;
+            }
+
+            if (!(ValidaCPF(CPF)))
+            {
+                MessageBox.Show("CPF não é válido");
+                txtCPF.Focus();
+                return;
+            }
+
+
+            if (CPFJaCadastrado(CPF) && (CPF != aluno.CPF))
+            {
+                MessageBox.Show("CPF já cadastrado");
+                txtMatricula.Focus();
+                return;
+            }
+
+            repositorio.Update(new Aluno(aluno.Matricula, nome, nascimento, CPF, sexo));
+
+            bsListaAlunos.DataSource = repositorio.GetAll();
+            AtualizaDGV();
         }
 
         private void dgvListaAlunos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
