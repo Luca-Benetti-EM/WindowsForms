@@ -211,8 +211,20 @@ namespace EM.WindowsForms
 
 		private void btnPesquisar_Click(object sender, EventArgs e)
 		{
+			//Recebe entrada da pesquisa e tenta converter para int, para identificar se é matrícula
+			try
+			{
+				bsListaAlunos.DataSource = repositorio.GetByMatricula(Convert.ToInt32(txtPesquisa.Text));
+			}
+
+			//Havendo exceção, a entrada é apenas tratada como string
+			catch
+			{
+				bsListaAlunos.DataSource = repositorio.GetByContendoNoNome(txtPesquisa.Text);
+			}
+
 			//BindingSource e DataGridView são atualizados
-			bsListaAlunos.DataSource = repositorio.GetByContendoNoNome(txtPesquisa.Text);
+			
 			dgvListaAlunos.DataSource = bsListaAlunos;
 		}
 
