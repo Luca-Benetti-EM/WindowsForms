@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Globalization;
 
 namespace EM.Repository
 {
@@ -23,12 +24,13 @@ namespace EM.Repository
         {
 
             var query = from aluno in lista
-                        where aluno.Nome.Contains(parteDoNome) || aluno.Nome.Contains(parteDoNome.ToLower()) || aluno.Nome.Contains(parteDoNome.ToUpper())
+                        where aluno.Nome.CustomContains(parteDoNome)
                         select aluno;
 
             return query.ToList();
         }
 
         
+
     }
 }
