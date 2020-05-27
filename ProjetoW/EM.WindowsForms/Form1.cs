@@ -140,10 +140,7 @@ namespace EM.WindowsForms
             btnCancelar.Enabled = true;
             btnCancelar.Visible = true;
 
-            txtMatricula.Text = "";
-            txtNome.Text = "";
-            cboSexo.SelectedItem = "";
-            txtNascimento.Text = "";
+            ObterDadosLinha();
 
             txtMatricula.Enabled = false;
 
@@ -158,7 +155,7 @@ namespace EM.WindowsForms
                 if (MessageBox.Show("Tem certeza que deseja realizar a exclusão do aluno?", "Atenção", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
 
-                    repositorio.Remove(repositorio.GetByMatricula((int)dgvListaAlunos.CurrentRow.Cells[0].Value));
+                    repositorio.Remove(RetornaAlunoMatriculaAtual());
 
                     bsListaAlunos.DataSource = repositorio.GetAll();
                     AtualizaDGV();
@@ -280,13 +277,13 @@ namespace EM.WindowsForms
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            //string matricula = txtMatricula.Text;
             string nome = txtNome.Text;
             DateTime nascimento = ConverteParaData(txtNascimento.Text);
             EnumeradorSexo sexo = (EnumeradorSexo)cboSexo.SelectedItem;
             string CPF = ConverteParaCPF(txtCPF.Text);
 
-            Aluno aluno = repositorio.GetByMatricula((int)dgvListaAlunos.CurrentRow.Cells[0].Value);
+            Aluno aluno = RetornaAlunoMatriculaAtual();
+                
 
             if (StringVazia(nome))
             {
@@ -321,6 +318,11 @@ namespace EM.WindowsForms
 
             bsListaAlunos.DataSource = repositorio.GetAll();
             AtualizaDGV();
+        }
+
+        private Aluno RetornaAlunoMatriculaAtual()
+        {
+            return repositorio.GetByMatricula((int)dgvListaAlunos.CurrentRow.Cells[0].Value);
         }
 
         private void dgvListaAlunos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
