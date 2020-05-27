@@ -86,12 +86,11 @@ namespace EM.WindowsForms
                 return;
             }
 
-            //Passando todos os casos, insere novo aluno
             repositorio.Add(new Aluno(matricula, nome, nascimento, CPF, sexo));
 
             //BindingSource e DataGridView são atualizados
             bsListaAlunos.DataSource = repositorio.GetAll();
-            dgvListaAlunos.DataSource = bsListaAlunos;
+            AtualizaDGV();
 
 
         }
@@ -163,9 +162,8 @@ namespace EM.WindowsForms
 
                     repositorio.Remove(repositorio.GetByMatricula((int)dgvListaAlunos.CurrentRow.Cells[0].Value));
 
-                    //BindingSource e DataGridView são atualizados
                     bsListaAlunos.DataSource = repositorio.GetAll();
-                    dgvListaAlunos.DataSource = bsListaAlunos;
+                    AtualizaDGV();
                 }
 
             }
@@ -180,20 +178,19 @@ namespace EM.WindowsForms
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            //Recebe entrada da pesquisa e tenta converter para int, para identificar se é matrícula
-            try
-            {
+            if(EhInt(txtPesquisa.Text)) {
                 bsListaAlunos.DataSource = repositorio.GetByMatricula(Convert.ToInt32(txtPesquisa.Text));
             }
 
-            //Havendo exceção, a entrada é apenas tratada como string
-            catch
-            {
+            else {
                 bsListaAlunos.DataSource = repositorio.GetByContendoNoNome(txtPesquisa.Text);
             }
 
-            //BindingSource e DataGridView são atualizados
-
+            AtualizaDGV();
+        }
+        
+        private void AtualizaDGV()
+        {
             dgvListaAlunos.DataSource = bsListaAlunos;
         }
 
@@ -382,6 +379,21 @@ namespace EM.WindowsForms
             }
 
             return false;
+        }
+
+        private bool EhInt(string entrada)
+        {
+            try
+            {
+                Convert.ToInt32(txtPesquisa.Text);
+            }
+
+            catch
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }
