@@ -40,20 +40,11 @@ namespace EM.WindowsForms
         {
             string matricula = txtMatricula.Text;
             string nome = txtNome.Text;
-            DateTime nascimento = new DateTime();
+            DateTime nascimento = ConverteParaData(txtNascimento.Text);
             EnumeradorSexo sexo = (EnumeradorSexo)cboSexo.SelectedItem;
             string CPF = txtCPF.Text;
 
-            try
-            {
-                nascimento = DateTime.ParseExact(txtNascimento.Text, "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("pt-BR")); //Data convertida para padrões BR
-            }
-
-
-            catch (Exception)
-            {
-                MessageBox.Show("Data não preenchida corretamente");
-            }
+            
 
             //Validando matricula
             if (StringVazia(matricula)) //Não aceita matrícula vazia
@@ -74,7 +65,7 @@ namespace EM.WindowsForms
             //Validando nascimento
             if (!ValidaData(nascimento))
             {
-                MessageBox.Show("Não é possível adicionar uma data de nascimento futura");
+                MessageBox.Show("Data inserida incorretamente ou data futura");
                 txtNascimento.Focus();
                 return;
             }
@@ -269,6 +260,7 @@ namespace EM.WindowsForms
 
         private bool ValidaData(DateTime nascimento)
         {
+            if (nascimento == new DateTime()) return false;
             if (nascimento.Date > DateTime.Today) return false;
             return true;
         }
@@ -362,6 +354,23 @@ namespace EM.WindowsForms
         {
             if (entrada == "") return true;
             else return false;
+        }
+
+        private DateTime ConverteParaData(string entrada)
+        {
+            DateTime data;
+            try
+            {
+               data = DateTime.ParseExact(entrada, "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("pt-BR")); //Data convertida para padrões BR
+            }
+
+
+            catch (Exception)
+            {
+                return new DateTime();
+            }
+
+            return data;
         }
     }
 }
