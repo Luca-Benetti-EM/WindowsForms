@@ -2,7 +2,7 @@
 
 namespace EM.WindowsForms
 {
-    partial class Form1
+    partial class Cadastro
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@ namespace EM.WindowsForms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cadastro));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlSuperior = new System.Windows.Forms.Panel();
@@ -61,13 +61,13 @@ namespace EM.WindowsForms
             this.sexoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nascimentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cPFDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.alunoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bsAluno = new System.Windows.Forms.BindingSource(this.components);
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.btnNovo = new System.Windows.Forms.Button();
             this.pnlSuperior.SuspendLayout();
             this.pnlPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaAlunos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alunoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsAluno)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSuperior
@@ -245,7 +245,7 @@ namespace EM.WindowsForms
             this.sexoDataGridViewTextBoxColumn,
             this.nascimentoDataGridViewTextBoxColumn,
             this.cPFDataGridViewTextBoxColumn});
-            this.dgvListaAlunos.DataSource = this.alunoBindingSource;
+            this.dgvListaAlunos.DataSource = this.bsAluno;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -300,9 +300,9 @@ namespace EM.WindowsForms
             this.cPFDataGridViewTextBoxColumn.Name = "cPFDataGridViewTextBoxColumn";
             this.cPFDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // alunoBindingSource
+            // bsAluno
             // 
-            this.alunoBindingSource.DataSource = typeof(EM.Domain.Aluno);
+            this.bsAluno.DataSource = typeof(EM.Domain.Aluno);
             // 
             // txtPesquisa
             // 
@@ -317,7 +317,7 @@ namespace EM.WindowsForms
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
-            // Form1
+            // Cadastro
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -330,14 +330,14 @@ namespace EM.WindowsForms
             this.Controls.Add(this.lblNovoAluno);
             this.Controls.Add(this.pnlPrincipal);
             this.Controls.Add(this.pnlSuperior);
-            this.Name = "Form1";
+            this.Name = "Cadastro";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pnlSuperior.ResumeLayout(false);
             this.pnlSuperior.PerformLayout();
             this.pnlPrincipal.ResumeLayout(false);
             this.pnlPrincipal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaAlunos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alunoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsAluno)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -366,7 +366,7 @@ namespace EM.WindowsForms
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtCPF;
         private System.Windows.Forms.TextBox txtMatricula;
-        private System.Windows.Forms.BindingSource alunoBindingSource;
+        private System.Windows.Forms.BindingSource bsAluno;
         private System.Windows.Forms.DataGridViewTextBoxColumn matriculaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sexoDataGridViewTextBoxColumn;

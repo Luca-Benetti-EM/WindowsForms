@@ -14,7 +14,7 @@ namespace EM.Repository
     {
         public Aluno GetByMatricula(int matricula)
         {
-            var query = from aluno in lista
+            var query = from aluno in ColecaodeAlunos
                         where aluno.Matricula == matricula
                         select aluno;
 
@@ -24,7 +24,7 @@ namespace EM.Repository
         public IEnumerable<Aluno> GetByContendoNoNome(string parteDoNome)
         {
 
-            var query = from aluno in lista
+            var query = from aluno in ColecaodeAlunos
                         where aluno.Nome.ContainsTodasVariacoes(parteDoNome)
                         select aluno;
 

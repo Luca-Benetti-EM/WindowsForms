@@ -13,13 +13,13 @@ using System.Globalization;
 
 namespace EM.WindowsForms
 {
-    public partial class Form1 : Form
+    public partial class Cadastro : Form
     {
         BindingSource bsListaAlunos = new BindingSource();
 
         private RepositorioAluno repositorio = new RepositorioAluno();
 
-        public Form1()
+        public Cadastro()
         {
             InitializeComponent();
 

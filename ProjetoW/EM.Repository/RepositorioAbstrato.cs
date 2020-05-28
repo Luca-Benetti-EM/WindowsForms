@@ -11,11 +11,11 @@ namespace EM.Repository
 {
     public abstract class RepositorioAbstrato<T> where T : IEntidade
     {
-        protected static BindingList<T> lista = new BindingList<T>();
+        protected static BindingList<T> ColecaodeAlunos = new BindingList<T>();
 
         public void Add(T objeto)
         {
-            lista.Add(objeto);
+            ColecaodeAlunos.Add(objeto);
         }
 
         public void Remove(T objeto)
@@ -25,9 +25,9 @@ namespace EM.Repository
             Aluno aluno = (Aluno) cast;
             RepositorioAluno repositorioAluno = new RepositorioAluno();
 
-            object recebido = repositorioAluno.GetByMatricula(aluno.Matricula);
+            cast = repositorioAluno.GetByMatricula(aluno.Matricula);
 
-            lista.Remove((T)recebido);
+            ColecaodeAlunos.Remove((T)cast);
         }
 
         public void Update(T objeto) {
@@ -36,12 +36,12 @@ namespace EM.Repository
         }
 
         public IEnumerable<T> GetAll() {
-            return (IEnumerable<T>)lista;
+            return (IEnumerable<T>)ColecaodeAlunos;
         }
 
         public IEnumerable<T> Get(Expression<Func<T, bool>> predicate) 
         {
-            var query = lista.Where(predicate.Compile()).ToList();
+            var query = ColecaodeAlunos.Where(predicate.Compile()).ToList();
 
             if(query.Count() == 0) return null;
 
