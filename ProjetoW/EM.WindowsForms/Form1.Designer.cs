@@ -330,6 +330,7 @@ namespace EM.WindowsForms
             this.Controls.Add(this.lblNovoAluno);
             this.Controls.Add(this.pnlPrincipal);
             this.Controls.Add(this.pnlSuperior);
+            this.MaximizeBox = false;
             this.Name = "Cadastro";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pnlSuperior.ResumeLayout(false);

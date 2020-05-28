@@ -88,7 +88,7 @@ namespace EM.WindowsForms
 
             repositorio.Add(new Aluno(matricula, nome, nascimento, CPF, sexo));
 
-            bsListaAlunos.DataSource = repositorio.GetAll();
+            bsListaAlunos.DataSource = repositorio.GetAll().OrderBy(a => a.Matricula);
             AtualizaDGV();
 
         }
@@ -178,7 +178,7 @@ namespace EM.WindowsForms
             }
 
             else {
-                bsListaAlunos.DataSource = repositorio.GetByContendoNoNome(txtPesquisa.Text);
+                bsListaAlunos.DataSource = repositorio.GetByContendoNoNome(txtPesquisa.Text).OrderBy(a => a.Nome);
             }
 
             AtualizaDGV();
@@ -268,6 +268,9 @@ namespace EM.WindowsForms
             txtNascimento.Text = "";
             txtCPF.Text = "";
             txtMatricula.Focus();
+
+            bsListaAlunos.DataSource = repositorio.GetAll();
+            AtualizaDGV();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
