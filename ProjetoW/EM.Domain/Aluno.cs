@@ -24,6 +24,7 @@ namespace EM.Domain
 
 
         public Aluno (int matricula, string nome, DateTime nascimento, string cpf, EnumeradorSexo sexo) {
+            if (!(matricula >= 1 && matricula <= 999999999)) throw new MatriculaAlunoInvalidoException();
             Matricula = matricula;
             Nome = nome;
             Nascimento = nascimento;

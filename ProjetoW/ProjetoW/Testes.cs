@@ -7,9 +7,10 @@ namespace ProjetoW
     [TestClass]
     public class Testes_Domain
     {
+        #region Testes Equals
 
         [TestMethod]
-        public void Verifica_Acerto_Equals() 
+        public void Verifica_Acerto_Equals()
         {
             Aluno A = new Aluno(1, "", new DateTime(), "", EnumeradorSexo.Masculino);
             Aluno B = new Aluno(1, "", new DateTime(), "", EnumeradorSexo.Masculino);
@@ -26,6 +27,9 @@ namespace ProjetoW
             Assert.AreEqual(false, A.Equals(B));
         }
 
+        #endregion
+
+        #region Teste GetHashCode
         [TestMethod]
         public void Verifica_Acerto_GetHashCode()
         {
@@ -44,6 +48,9 @@ namespace ProjetoW
             Assert.AreEqual(false, A.GetHashCode() == B.GetHashCode());
         }
 
+        #endregion
+
+        #region Testes Matricula
         [TestMethod]
         public void Deve_Aceitar_Apenas_Numeros_Matricula()
         {
@@ -54,16 +61,13 @@ namespace ProjetoW
         }
 
         [TestMethod]
-        public void Deve_Falhar_Ao_Inserir_Numero_0()
+        public void Deve_Falhar_Ao_Inserir_Numeros_Fora_Do_Range()
         {
-
+            var ex = Assert.ThrowsException<MatriculaAlunoInvalidoException>(() => new Aluno(0, "", new DateTime(), "", EnumeradorSexo.Masculino));
+            Assert.AreEqual(ex.Message, ("Matrícula deve ter pelo menos 1 e no máximo 9 dígitos"));
         }
 
-        [TestMethod]
-        public void Deve_Falhar_Ao_Inserir_Mais_De_9_Digitos()
-        {
-            
-        }
+        #endregion
 
         [TestMethod]
         public void Deve_Aceitar_Duas_Opcoes_Sexo()
