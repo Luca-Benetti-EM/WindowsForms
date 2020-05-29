@@ -15,11 +15,13 @@ namespace EM.Domain
 
     public class Aluno : IEntidade
     {
-        private int _matricula;
-        private string _nome;
-        private DateTime _nascimento;
-        public EnumeradorSexo _sexo;
-        private string _cpf;
+
+        public int Matricula;
+        public string Nome;
+        public DateTime Nascimento;
+        public string CPF;
+        public EnumeradorSexo Sexo;
+
 
         public Aluno (int matricula, string nome, DateTime nascimento, string cpf, EnumeradorSexo sexo) {
             Matricula = matricula;
@@ -29,81 +31,16 @@ namespace EM.Domain
             Sexo = sexo;
         }
 
-        public int Matricula
-        {
-            get 
-            {
-                return _matricula;
-            }
-
-            set 
-            {
-                _matricula = value;
-            }
-        }
-
-        public string Nome
-        {
-            get
-            {
-                return _nome;
-            }
-
-            set
-            {
-                _nome = value;
-            }
-        }
-
-        public EnumeradorSexo Sexo
-        {
-            get
-            {
-                return _sexo;
-            }
-
-            set
-            {
-                _sexo = value;
-            }
-        }
-
-        public DateTime Nascimento
-        {
-            get
-            {
-                return _nascimento;
-            }
-
-            set
-            {
-                _nascimento = value;
-            }
-        }
-
-
-        public string CPF
-        {
-            get
-            {
-                return _cpf;
-            }
-
-            set
-            {
-                
-                if(value != "") _cpf = value;
-            }
-        }
-
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
+            Aluno aluno = (Aluno) obj;
+
+            return (this.Matricula == aluno.Matricula) && (this.Nome == aluno.Nome) && (this.Nascimento == aluno.Nascimento) && (this.CPF == aluno.CPF) && (this.Sexo == aluno.Sexo);
         }
 
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            return Matricula;
         }
 
         public override string ToString()
