@@ -102,11 +102,18 @@ namespace ProjetoW
 
         #endregion
 
+        #region Testes Sexo
         [TestMethod]
         public void Deve_Aceitar_Duas_Opcoes_Sexo()
         {
+            Aluno aluno = new Aluno(123456789, "A", new DateTime(), "", EnumeradorSexo.Masculino);
+            Assert.AreEqual(EnumeradorSexo.Masculino, aluno.Sexo);
 
+            aluno = new Aluno(123456789, "A", new DateTime(), "", EnumeradorSexo.Feminino);
+            Assert.AreEqual(EnumeradorSexo.Feminino, aluno.Sexo);
         }
+
+        #endregion
 
         [TestMethod]
         public void Deve_Aceitar_Apenas_Retroativas_Data()

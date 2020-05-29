@@ -19,4 +19,12 @@ namespace EM.Domain
             
         }
     }
+
+    public class SexoAlunoInvalidoException : Exception
+    {
+        public SexoAlunoInvalidoException() : base(String.Format("Sexo escolhido deve ser masculino ou feminino"))
+        {
+
+        }
+    }
 }

@@ -31,9 +31,12 @@ namespace EM.Domain
             if ((string.IsNullOrWhiteSpace(nome) || string.IsNullOrEmpty(nome) || nome.Length > 100)) throw new NomeAlunoInvalidoException();
             Nome = nome;
 
-            Nascimento = nascimento;
-            CPF = cpf;
+            if (!(sexo == EnumeradorSexo.Feminino || sexo == EnumeradorSexo.Masculino)) throw new SexoAlunoInvalidoException();
             Sexo = sexo;
+
+            Nascimento = nascimento;
+
+            CPF = cpf;
         }
 
         public override bool Equals(object obj)
