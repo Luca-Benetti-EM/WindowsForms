@@ -21,8 +21,8 @@ namespace ProjetoW
         [TestMethod]
         public void Verifica_Falha_Equals()
         {
-            Aluno A = new Aluno(1, "A", new DateTime(), "A", EnumeradorSexo.Masculino);
-            Aluno B = new Aluno(1, "B", new DateTime(), "B", EnumeradorSexo.Masculino);
+            Aluno A = new Aluno(1, "A", new DateTime(), "", EnumeradorSexo.Masculino);
+            Aluno B = new Aluno(1, "B", new DateTime(), "", EnumeradorSexo.Masculino);
 
             Assert.AreEqual(false, A.Equals(B));
         }
@@ -33,8 +33,8 @@ namespace ProjetoW
         [TestMethod]
         public void Verifica_Acerto_GetHashCode()
         {
-            Aluno A = new Aluno(1, "A", new DateTime(), "A", EnumeradorSexo.Masculino);
-            Aluno B = new Aluno(1, "B", new DateTime(), "B", EnumeradorSexo.Masculino);
+            Aluno A = new Aluno(1, "A", new DateTime(), "", EnumeradorSexo.Masculino);
+            Aluno B = new Aluno(1, "B", new DateTime(), "", EnumeradorSexo.Masculino);
 
             Assert.AreEqual(true, A.GetHashCode() == B.GetHashCode());
         }
@@ -42,8 +42,8 @@ namespace ProjetoW
         [TestMethod]
         public void Verifica_Erro_GetHashCode()
         {
-            Aluno A = new Aluno(1, "A", new DateTime(), "A", EnumeradorSexo.Masculino);
-            Aluno B = new Aluno(2, "A", new DateTime(), "A", EnumeradorSexo.Masculino);
+            Aluno A = new Aluno(1, "A", new DateTime(), "", EnumeradorSexo.Masculino);
+            Aluno B = new Aluno(2, "A", new DateTime(), "", EnumeradorSexo.Masculino);
 
             Assert.AreEqual(false, A.GetHashCode() == B.GetHashCode());
         }
@@ -144,9 +144,23 @@ namespace ProjetoW
 
         #region Testes CPF
         [TestMethod]
-        public void Deve_Ser_Valido_Ou_Blank_CPF()
+        public void Deve_Aceitar_Valido_CPF()
         {
+            Aluno aluno = new Aluno(123456789, "A", new DateTime(), "412.637.180-00", EnumeradorSexo.Masculino);
+            Assert.AreEqual("412.637.180-00", aluno.CPF);
+        }
 
+        [TestMethod]
+        public void Deve_Aceitar_Nulo_CPF()
+        {
+            Aluno aluno = new Aluno(123456789, "A", new DateTime(), "", EnumeradorSexo.Masculino);
+            Assert.AreEqual("", aluno.CPF);
+        }
+
+        [TestMethod]
+        public void Deve_Lancar_Excecao_Invalido_CPF()
+        {
+            Assert.ThrowsException<CPFAlunoInvalidoException>(() => new Aluno(123456789, "A", new DateTime(), "1", EnumeradorSexo.Masculino));
         }
 
         #endregion
