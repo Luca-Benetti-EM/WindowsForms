@@ -109,7 +109,6 @@ namespace EM.WindowsForms
             resources.ApplyResources(this.btnCancelar, "btnCancelar");
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnModificar
             // 
@@ -117,26 +116,22 @@ namespace EM.WindowsForms
             resources.ApplyResources(this.btnModificar, "btnModificar");
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.UseVisualStyleBackColor = false;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // txtCPF
             // 
             resources.ApplyResources(this.txtCPF, "txtCPF");
             this.txtCPF.Name = "txtCPF";
-            this.txtCPF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textCPF_KeyPress);
             // 
             // txtMatricula
             // 
             resources.ApplyResources(this.txtMatricula, "txtMatricula");
             this.txtMatricula.Name = "txtMatricula";
-            this.txtMatricula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMatricula_KeyPress);
             // 
             // txtNascimento
             // 
             resources.ApplyResources(this.txtNascimento, "txtNascimento");
             this.txtNascimento.Name = "txtNascimento";
             this.txtNascimento.ValidatingType = typeof(System.DateTime);
-            this.txtNascimento.Leave += new System.EventHandler(this.txtNascimento_Leave);
             // 
             // btnAdicionar
             // 
@@ -144,7 +139,6 @@ namespace EM.WindowsForms
             resources.ApplyResources(this.btnAdicionar, "btnAdicionar");
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.UseVisualStyleBackColor = false;
-            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // btnLimpar
             // 
@@ -152,13 +146,11 @@ namespace EM.WindowsForms
             resources.ApplyResources(this.btnLimpar, "btnLimpar");
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.UseVisualStyleBackColor = false;
-            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // lblCPF
             // 
             resources.ApplyResources(this.lblCPF, "lblCPF");
             this.lblCPF.Name = "lblCPF";
-            this.lblCPF.Click += new System.EventHandler(this.label7_Click);
             // 
             // lblNascimento
             // 
@@ -184,7 +176,6 @@ namespace EM.WindowsForms
             // 
             resources.ApplyResources(this.txtNome, "txtNome");
             this.txtNome.Name = "txtNome";
-            this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
             // 
             // lblNome
             // 
@@ -207,7 +198,6 @@ namespace EM.WindowsForms
             resources.ApplyResources(this.btnPesquisar, "btnPesquisar");
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = false;
-            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnEditar
             // 
@@ -215,7 +205,6 @@ namespace EM.WindowsForms
             resources.ApplyResources(this.btnEditar, "btnEditar");
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.UseVisualStyleBackColor = false;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnExcluir
             // 
@@ -223,7 +212,6 @@ namespace EM.WindowsForms
             resources.ApplyResources(this.btnExcluir, "btnExcluir");
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // dgvListaAlunos
             // 
@@ -262,8 +250,6 @@ namespace EM.WindowsForms
             this.dgvListaAlunos.ReadOnly = true;
             this.dgvListaAlunos.RowHeadersVisible = false;
             this.dgvListaAlunos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListaAlunos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaAlunos_CellClick);
-            this.dgvListaAlunos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaAlunos_CellDoubleClick);
             // 
             // matriculaDataGridViewTextBoxColumn
             // 
@@ -315,7 +301,6 @@ namespace EM.WindowsForms
             resources.ApplyResources(this.btnNovo, "btnNovo");
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.UseVisualStyleBackColor = false;
-            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // Cadastro
             // 

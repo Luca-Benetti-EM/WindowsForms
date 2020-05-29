@@ -187,7 +187,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnCancelar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>423, 84</value>
+    <value>422, 63</value>
   </data>
   <data name="btnCancelar.Size" type="System.Drawing.Size, System.Drawing">
     <value>92, 23</value>
@@ -226,7 +226,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnModificar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>521, 84</value>
+    <value>529, 63</value>
   </data>
   <data name="btnModificar.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 23</value>
@@ -736,7 +736,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnExcluir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>534, 330</value>
+    <value>537, 330</value>
   </data>
   <data name="btnExcluir.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 23</value>
@@ -832,7 +832,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnNovo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>438, 330</value>
+    <value>378, 330</value>
   </data>
   <data name="btnNovo.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 23</value>

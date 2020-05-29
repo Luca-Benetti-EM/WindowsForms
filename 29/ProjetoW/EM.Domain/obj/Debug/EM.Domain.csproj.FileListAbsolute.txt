@@ -1,0 +1,42 @@
+C:\Users\Escolar Manager\source\repos\ProjetoW\EM.Domain\bin\Debug\EM.Domain.dll
+C:\Users\Escolar Manager\source\repos\ProjetoW\EM.Domain\bin\Debug\EM.Domain.pdb
+C:\Users\Escolar Manager\source\repos\ProjetoW\EM.Domain\obj\Debug\EM.Domain.csprojAssemblyReference.cache
+C:\Users\Escolar Manager\source\repos\ProjetoW\EM.Domain\obj\Debug\EM.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Escolar Manager\source\repos\ProjetoW\EM.Domain\obj\Debug\EM.Domain.dll
+C:\Users\Escolar Manager\source\repos\ProjetoW\EM.Domain\obj\Debug\EM.Domain.pdb
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.Domain\bin\Debug\EM.Domain.dll
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.Domain\bin\Debug\EM.Domain.pdb
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.Domain\obj\Debug\EM.Domain.csprojAssemblyReference.cache
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.Domain\obj\Debug\EM.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.Domain\obj\Debug\EM.Domain.dll
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.Domain\obj\Debug\EM.Domain.pdb
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.Domain\bin\Debug\EM.Domain.dll
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.Domain\bin\Debug\EM.Domain.pdb
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.Domain\obj\Debug\EM.Domain.csprojAssemblyReference.cache
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.Domain\obj\Debug\EM.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.Domain\obj\Debug\EM.Domain.dll
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.Domain\obj\Debug\EM.Domain.pdb
+C:\Users\Simone\Desktop\ProjetoW\EM.Domain\bin\Debug\EM.Domain.dll
+C:\Users\Simone\Desktop\ProjetoW\EM.Domain\bin\Debug\EM.Domain.pdb
+C:\Users\Simone\Desktop\ProjetoW\EM.Domain\obj\Debug\EM.Domain.csprojAssemblyReference.cache
+C:\Users\Simone\Desktop\ProjetoW\EM.Domain\obj\Debug\EM.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Simone\Desktop\ProjetoW\EM.Domain\obj\Debug\EM.Domain.dll
+C:\Users\Simone\Desktop\ProjetoW\EM.Domain\obj\Debug\EM.Domain.pdb
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.Domain\bin\Debug\EM.Domain.dll
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.Domain\bin\Debug\EM.Domain.pdb
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.Domain\obj\Debug\EM.Domain.csprojAssemblyReference.cache
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.Domain\obj\Debug\EM.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.Domain\obj\Debug\EM.Domain.dll
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.Domain\obj\Debug\EM.Domain.pdb
+C:\work\ProjetoW\EM.Domain\bin\Debug\EM.Domain.dll
+C:\work\ProjetoW\EM.Domain\bin\Debug\EM.Domain.pdb
+C:\work\ProjetoW\EM.Domain\obj\Debug\EM.Domain.csprojAssemblyReference.cache
+C:\work\ProjetoW\EM.Domain\obj\Debug\EM.Domain.csproj.CoreCompileInputs.cache
+C:\work\ProjetoW\EM.Domain\obj\Debug\EM.Domain.dll
+C:\work\ProjetoW\EM.Domain\obj\Debug\EM.Domain.pdb
+C:\work\WindowsForms\ProjetoW\EM.Domain\bin\Debug\EM.Domain.dll
+C:\work\WindowsForms\ProjetoW\EM.Domain\bin\Debug\EM.Domain.pdb
+C:\work\WindowsForms\ProjetoW\EM.Domain\obj\Debug\EM.Domain.csprojAssemblyReference.cache
+C:\work\WindowsForms\ProjetoW\EM.Domain\obj\Debug\EM.Domain.csproj.CoreCompileInputs.cache
+C:\work\WindowsForms\ProjetoW\EM.Domain\obj\Debug\EM.Domain.dll
+C:\work\WindowsForms\ProjetoW\EM.Domain\obj\Debug\EM.Domain.pdb

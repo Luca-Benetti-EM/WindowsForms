@@ -1,0 +1,119 @@
+C:\Users\Escolar Manager\source\repos\ProjetoW\EM.WindowsForms\bin\Debug\EM.WindowsForms.exe.config
+C:\Users\Escolar Manager\source\repos\ProjetoW\EM.WindowsForms\bin\Debug\EM.WindowsForms.exe
+C:\Users\Escolar Manager\source\repos\ProjetoW\EM.WindowsForms\bin\Debug\EM.WindowsForms.pdb
+C:\Users\Escolar Manager\source\repos\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csprojAssemblyReference.cache
+C:\Users\Escolar Manager\source\repos\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.Properties.Resources.resources
+C:\Users\Escolar Manager\source\repos\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csproj.GenerateResource.cache
+C:\Users\Escolar Manager\source\repos\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csproj.CoreCompileInputs.cache
+C:\Users\Escolar Manager\source\repos\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.exe
+C:\Users\Escolar Manager\source\repos\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.pdb
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.WindowsForms\bin\Debug\EM.WindowsForms.exe.config
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.WindowsForms\bin\Debug\EM.WindowsForms.exe
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.WindowsForms\bin\Debug\EM.WindowsForms.pdb
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csprojAssemblyReference.cache
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.Properties.Resources.resources
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csproj.GenerateResource.cache
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csproj.CoreCompileInputs.cache
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.exe
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.pdb
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.WindowsForms\bin\Debug\pt-BR\EM.WindowsForms.resources.dll
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.Form1.resources
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.Form1.pt-BR.resources
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.WindowsForms\obj\Debug\pt-BR\EM.WindowsForms.resources.dll
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.WindowsForms\bin\Debug\EM.Domain.dll
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.WindowsForms\bin\Debug\EM.Repository.dll
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.WindowsForms\bin\Debug\EM.Domain.pdb
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.WindowsForms\bin\Debug\EM.Repository.pdb
+C:\Users\Simone\Desktop\WindowsForm\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csproj.CopyComplete
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.WindowsForms\bin\Debug\EM.WindowsForms.exe.config
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.WindowsForms\bin\Debug\EM.WindowsForms.exe
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.WindowsForms\bin\Debug\EM.WindowsForms.pdb
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.WindowsForms\bin\Debug\pt-BR\EM.WindowsForms.resources.dll
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csprojAssemblyReference.cache
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.Form1.resources
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.Properties.Resources.resources
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.Form1.pt-BR.resources
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csproj.GenerateResource.cache
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csproj.CoreCompileInputs.cache
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.WindowsForms\obj\Debug\pt-BR\EM.WindowsForms.resources.dll
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.exe
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.pdb
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.WindowsForms\bin\Debug\EM.Domain.dll
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.WindowsForms\bin\Debug\EM.Repository.dll
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.WindowsForms\bin\Debug\EM.Domain.pdb
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.WindowsForms\bin\Debug\EM.Repository.pdb
+C:\Users\Escolar Manager\Desktop\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csproj.CopyComplete
+C:\Users\Simone\Desktop\ProjetoW\EM.WindowsForms\bin\Debug\EM.WindowsForms.exe.config
+C:\Users\Simone\Desktop\ProjetoW\EM.WindowsForms\bin\Debug\EM.WindowsForms.exe
+C:\Users\Simone\Desktop\ProjetoW\EM.WindowsForms\bin\Debug\EM.WindowsForms.pdb
+C:\Users\Simone\Desktop\ProjetoW\EM.WindowsForms\bin\Debug\pt-BR\EM.WindowsForms.resources.dll
+C:\Users\Simone\Desktop\ProjetoW\EM.WindowsForms\bin\Debug\EM.Domain.dll
+C:\Users\Simone\Desktop\ProjetoW\EM.WindowsForms\bin\Debug\EM.Repository.dll
+C:\Users\Simone\Desktop\ProjetoW\EM.WindowsForms\bin\Debug\EM.Domain.pdb
+C:\Users\Simone\Desktop\ProjetoW\EM.WindowsForms\bin\Debug\EM.Repository.pdb
+C:\Users\Simone\Desktop\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csprojAssemblyReference.cache
+C:\Users\Simone\Desktop\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.Form1.resources
+C:\Users\Simone\Desktop\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.Properties.Resources.resources
+C:\Users\Simone\Desktop\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.Form1.pt-BR.resources
+C:\Users\Simone\Desktop\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csproj.GenerateResource.cache
+C:\Users\Simone\Desktop\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csproj.CoreCompileInputs.cache
+C:\Users\Simone\Desktop\ProjetoW\EM.WindowsForms\obj\Debug\pt-BR\EM.WindowsForms.resources.dll
+C:\Users\Simone\Desktop\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csproj.CopyComplete
+C:\Users\Simone\Desktop\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.exe
+C:\Users\Simone\Desktop\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.pdb
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.WindowsForms\bin\Debug\EM.WindowsForms.exe.config
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.WindowsForms\bin\Debug\EM.WindowsForms.exe
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.WindowsForms\bin\Debug\EM.WindowsForms.pdb
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.WindowsForms\bin\Debug\pt-BR\EM.WindowsForms.resources.dll
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.WindowsForms\bin\Debug\EM.Domain.dll
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.WindowsForms\bin\Debug\EM.Repository.dll
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.WindowsForms\bin\Debug\EM.Domain.pdb
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.WindowsForms\bin\Debug\EM.Repository.pdb
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csprojAssemblyReference.cache
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.Form1.resources
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.Properties.Resources.resources
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.Form1.pt-BR.resources
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csproj.GenerateResource.cache
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csproj.CoreCompileInputs.cache
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.WindowsForms\obj\Debug\pt-BR\EM.WindowsForms.resources.dll
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csproj.CopyComplete
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.exe
+C:\Users\Escolar Manager\Desktop\Tela\25\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.pdb
+C:\work\ProjetoW\EM.WindowsForms\bin\Debug\EM.WindowsForms.exe.config
+C:\work\ProjetoW\EM.WindowsForms\bin\Debug\EM.WindowsForms.exe
+C:\work\ProjetoW\EM.WindowsForms\bin\Debug\EM.WindowsForms.pdb
+C:\work\ProjetoW\EM.WindowsForms\bin\Debug\pt-BR\EM.WindowsForms.resources.dll
+C:\work\ProjetoW\EM.WindowsForms\bin\Debug\EM.Domain.dll
+C:\work\ProjetoW\EM.WindowsForms\bin\Debug\EM.Repository.dll
+C:\work\ProjetoW\EM.WindowsForms\bin\Debug\EM.Domain.pdb
+C:\work\ProjetoW\EM.WindowsForms\bin\Debug\EM.Repository.pdb
+C:\work\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csprojAssemblyReference.cache
+C:\work\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.Form1.resources
+C:\work\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.Properties.Resources.resources
+C:\work\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.Form1.pt-BR.resources
+C:\work\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csproj.GenerateResource.cache
+C:\work\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csproj.CoreCompileInputs.cache
+C:\work\ProjetoW\EM.WindowsForms\obj\Debug\pt-BR\EM.WindowsForms.resources.dll
+C:\work\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csproj.CopyComplete
+C:\work\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.exe
+C:\work\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.pdb
+C:\work\WindowsForms\ProjetoW\EM.WindowsForms\bin\Debug\EM.WindowsForms.exe.config
+C:\work\WindowsForms\ProjetoW\EM.WindowsForms\bin\Debug\EM.WindowsForms.exe
+C:\work\WindowsForms\ProjetoW\EM.WindowsForms\bin\Debug\EM.WindowsForms.pdb
+C:\work\WindowsForms\ProjetoW\EM.WindowsForms\bin\Debug\pt-BR\EM.WindowsForms.resources.dll
+C:\work\WindowsForms\ProjetoW\EM.WindowsForms\bin\Debug\EM.Domain.dll
+C:\work\WindowsForms\ProjetoW\EM.WindowsForms\bin\Debug\EM.Repository.dll
+C:\work\WindowsForms\ProjetoW\EM.WindowsForms\bin\Debug\EM.Domain.pdb
+C:\work\WindowsForms\ProjetoW\EM.WindowsForms\bin\Debug\EM.Repository.pdb
+C:\work\WindowsForms\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csprojAssemblyReference.cache
+C:\work\WindowsForms\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.Properties.Resources.resources
+C:\work\WindowsForms\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csproj.GenerateResource.cache
+C:\work\WindowsForms\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csproj.CoreCompileInputs.cache
+C:\work\WindowsForms\ProjetoW\EM.WindowsForms\obj\Debug\pt-BR\EM.WindowsForms.resources.dll
+C:\work\WindowsForms\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csproj.CopyComplete
+C:\work\WindowsForms\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.exe
+C:\work\WindowsForms\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.pdb
+C:\work\WindowsForms\ProjetoW\EM.WindowsForms\bin\Debug\EM.MetodosExtensao.dll
+C:\work\WindowsForms\ProjetoW\EM.WindowsForms\bin\Debug\EM.MetodosExtensao.pdb
+C:\work\WindowsForms\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.Cadastro.resources
+C:\work\WindowsForms\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.Cadastro.pt-BR.resources
