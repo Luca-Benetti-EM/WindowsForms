@@ -56,6 +56,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EM.Domain\EM.Domain.csproj">
+      <Project>{688f6392-817f-4413-b7d1-8e6a8827453f}</Project>
+      <Name>EM.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EM.Repository\EM.Repository.csproj">
       <Project>{4b445574-385c-46fe-ab55-f66c79fffa19}</Project>
       <Name>EM.Repository</Name>

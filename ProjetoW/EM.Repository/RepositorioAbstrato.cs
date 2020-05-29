@@ -11,7 +11,7 @@ namespace EM.Repository
 {
     public abstract class RepositorioAbstrato<T> where T : IEntidade
     {
-        protected static BindingList<T> ColecaodeAlunos = new BindingList<T>();
+        protected BindingList<T> ColecaodeAlunos = new BindingList<T>();
 
         public void Add(T objeto)
         {
@@ -41,9 +41,9 @@ namespace EM.Repository
 
         public IEnumerable<T> Get(Expression<Func<T, bool>> predicate) 
         {
-            var query = ColecaodeAlunos.Where(predicate.Compile()).ToList();
+            var query = ColecaodeAlunos.Where(predicate.Compile());
 
-            if(query.Count() == 0) return null;
+            //if(query.Count() == 0) return null;
 
             return query;
         }

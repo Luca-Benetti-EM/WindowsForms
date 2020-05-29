@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using EM.Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace EM.Repository.Testes
@@ -9,12 +11,18 @@ namespace EM.Repository.Testes
         [TestMethod]
         public void Adiciona_Aluno_A_ColecaoDeAlunos()
         {
+            RepositorioAluno _repositorio = new RepositorioAluno();
 
+            Aluno _aluno = new Aluno(1, "A", new DateTime(25/01/2000), "412.637.180-00", EnumeradorSexo.Masculino);
+
+            _repositorio.Add(_aluno);
+
+            Assert.AreEqual(_aluno, _repositorio.GetAll().First());
         }
 
         public void Remove_Aluno_Da_ColecaoDeAlunos()
         {
-
+      
         }
 
         public void Atualiza_Aluno_Na_ColecaoDeAlunos()
