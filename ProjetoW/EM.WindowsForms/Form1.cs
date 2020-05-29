@@ -269,7 +269,7 @@ namespace EM.WindowsForms
             txtCPF.Text = "";
             txtMatricula.Focus();
 
-            bsListaAlunos.DataSource = repositorio.GetAll();
+            bsListaAlunos.DataSource = repositorio.GetAll().OrderBy(a => a.Nome);
             AtualizaDGV();
         }
 
@@ -343,7 +343,7 @@ namespace EM.WindowsForms
 
         private string ConverteParaCPF(string entrada)
         {
-            if (StringVazia(entrada)) return entrada;
+            if (StringVazia(entrada)) return "";
             else return Convert.ToUInt64(entrada).ToString(@"000\.000\.000\-00");
         }
 
@@ -359,7 +359,7 @@ namespace EM.WindowsForms
             cboSexo.SelectedItem = dgvListaAlunos.CurrentRow.Cells[2].Value;
             txtNascimento.Text = dgvListaAlunos.CurrentRow.Cells[3].Value.ToString();
 
-            if (!(dgvListaAlunos.CurrentRow.Cells[4].Value.ToString() == "")) //Se houver CPF, retorna apenas os números ao editar
+            if (!(dgvListaAlunos.CurrentRow.Cells[4].Value == null)) //Se houver CPF, retorna apenas os números ao editar
             {
                 txtCPF.Text = dgvListaAlunos.CurrentRow.Cells[4].Value.ToString().Substring(0, 3)
                 + dgvListaAlunos.CurrentRow.Cells[4].Value.ToString().Substring(4, 3)

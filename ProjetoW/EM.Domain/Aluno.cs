@@ -23,10 +23,10 @@ namespace EM.Domain
 
         public Aluno (int matricula, string nome, DateTime nascimento, string cpf, EnumeradorSexo sexo) {
             Matricula = matricula;
-            this.Nome = nome;
-            this.Nascimento = nascimento;
-            this.CPF = cpf;
-            this.Sexo = sexo;
+            Nome = nome;
+            Nascimento = nascimento;
+            CPF = cpf;
+            Sexo = sexo;
         }
 
         public int Matricula
@@ -36,7 +36,8 @@ namespace EM.Domain
                 return _matricula;
             }
 
-            set {
+            set 
+            {
                 _matricula = value;
             }
         }
@@ -91,8 +92,7 @@ namespace EM.Domain
             set
             {
                 
-                if(value == "");
-                _cpf = value;
+                if(value != "") _cpf = value;
             }
         }
 

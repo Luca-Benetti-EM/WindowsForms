@@ -47,3 +47,23 @@ C:\Users\Escolar Manager\Desktop\ProjetoW\EM.Repository.Testes\obj\Debug\EM.Repo
 C:\Users\Escolar Manager\Desktop\ProjetoW\EM.Repository.Testes\obj\Debug\EM.Repository.Testes.pdb
 C:\Users\Escolar Manager\Desktop\ProjetoW\EM.Repository.Testes\bin\Debug\EM.Domain.dll
 C:\Users\Escolar Manager\Desktop\ProjetoW\EM.Repository.Testes\bin\Debug\EM.Domain.pdb
+C:\work\WindowsForms\ProjetoW\EM.Repository.Testes\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\work\WindowsForms\ProjetoW\EM.Repository.Testes\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\work\WindowsForms\ProjetoW\EM.Repository.Testes\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\work\WindowsForms\ProjetoW\EM.Repository.Testes\bin\Debug\EM.Repository.Testes.dll
+C:\work\WindowsForms\ProjetoW\EM.Repository.Testes\bin\Debug\EM.Repository.Testes.pdb
+C:\work\WindowsForms\ProjetoW\EM.Repository.Testes\bin\Debug\EM.Repository.dll
+C:\work\WindowsForms\ProjetoW\EM.Repository.Testes\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\work\WindowsForms\ProjetoW\EM.Repository.Testes\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\work\WindowsForms\ProjetoW\EM.Repository.Testes\bin\Debug\EM.Domain.dll
+C:\work\WindowsForms\ProjetoW\EM.Repository.Testes\bin\Debug\EM.MetodosExtensao.dll
+C:\work\WindowsForms\ProjetoW\EM.Repository.Testes\bin\Debug\EM.Repository.pdb
+C:\work\WindowsForms\ProjetoW\EM.Repository.Testes\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\work\WindowsForms\ProjetoW\EM.Repository.Testes\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\work\WindowsForms\ProjetoW\EM.Repository.Testes\bin\Debug\EM.Domain.pdb
+C:\work\WindowsForms\ProjetoW\EM.Repository.Testes\bin\Debug\EM.MetodosExtensao.pdb
+C:\work\WindowsForms\ProjetoW\EM.Repository.Testes\obj\Debug\EM.Repository.Testes.csprojAssemblyReference.cache
+C:\work\WindowsForms\ProjetoW\EM.Repository.Testes\obj\Debug\EM.Repository.Testes.csproj.CoreCompileInputs.cache
+C:\work\WindowsForms\ProjetoW\EM.Repository.Testes\obj\Debug\EM.Repository.Testes.csproj.CopyComplete
+C:\work\WindowsForms\ProjetoW\EM.Repository.Testes\obj\Debug\EM.Repository.Testes.dll
+C:\work\WindowsForms\ProjetoW\EM.Repository.Testes\obj\Debug\EM.Repository.Testes.pdb
