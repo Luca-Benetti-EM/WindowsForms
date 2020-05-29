@@ -268,6 +268,7 @@ namespace EM.WindowsForms
             cboSexo.SelectedItem = EnumeradorSexo.Masculino;
             txtNascimento.Text = "";
             txtCPF.Text = "";
+            txtPesquisa.Text = "";
             txtMatricula.Focus();
 
             bsListaAlunos.DataSource = repositorio.GetAll().OrderBy(a => a.Nome);
