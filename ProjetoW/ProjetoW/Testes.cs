@@ -12,8 +12,8 @@ namespace ProjetoW
         [TestMethod]
         public void Verifica_Acerto_Equals()
         {
-            Aluno A = new Aluno(1, "", new DateTime(), "", EnumeradorSexo.Masculino);
-            Aluno B = new Aluno(1, "", new DateTime(), "", EnumeradorSexo.Masculino);
+            Aluno A = new Aluno(1, "A", new DateTime(), "", EnumeradorSexo.Masculino);
+            Aluno B = new Aluno(1, "A", new DateTime(), "", EnumeradorSexo.Masculino);
 
             Assert.AreEqual(true, A.Equals(B));
         }
@@ -54,17 +54,50 @@ namespace ProjetoW
         [TestMethod]
         public void Deve_Aceitar_Apenas_Numeros_Matricula()
         {
-            Aluno aluno = new Aluno(123456789, "", new DateTime(), "", EnumeradorSexo.Masculino);
+            Aluno aluno = new Aluno(123456789, "A", new DateTime(), "", EnumeradorSexo.Masculino);
 
             Assert.AreEqual(123456789, aluno.Matricula);
-
         }
 
         [TestMethod]
-        public void Deve_Falhar_Ao_Inserir_Numeros_Fora_Do_Range()
+        public void Deve_Lancar_Exception_Ao_Inserir_Numeros_Fora_Do_Range()
         {
-            var ex = Assert.ThrowsException<MatriculaAlunoInvalidoException>(() => new Aluno(0, "", new DateTime(), "", EnumeradorSexo.Masculino));
-            Assert.AreEqual(ex.Message, ("Matrícula deve ter pelo menos 1 e no máximo 9 dígitos"));
+            Assert.ThrowsException<MatriculaAlunoInvalidoException>(() => new Aluno(0, "A", new DateTime(), "", EnumeradorSexo.Masculino));
+            Assert.ThrowsException<MatriculaAlunoInvalidoException>(() => new Aluno(1234567891, "A", new DateTime(), "", EnumeradorSexo.Masculino));
+        }
+
+        #endregion
+
+        #region Testes Nome
+
+        [TestMethod]
+        public void Deve_Aceitar_Nome ()
+        {
+            Aluno aluno = new Aluno(123456789, "A", new DateTime(), "", EnumeradorSexo.Masculino);
+
+            Assert.AreEqual("A", aluno.Nome);
+
+            string nome = "A";
+
+            for (int i = 1; i <= 99; i++)
+                nome += "A";
+
+            aluno = new Aluno(123456789, nome, new DateTime(), "", EnumeradorSexo.Masculino);
+
+            Assert.AreEqual(nome, aluno.Nome);
+        }
+
+        [TestMethod]
+        public void Deve_Lancar_Exception_Ao_Inserir_Nome_Fora_Do_Range() {
+
+            Assert.ThrowsException<NomeAlunoInvalidoException>(() => new Aluno(123456789, "", new DateTime(), "", EnumeradorSexo.Masculino));
+
+            string nome = "A";
+
+            for(int i = 1; i <= 100; i++)
+                nome += "A";
+
+            Assert.ThrowsException<NomeAlunoInvalidoException>(() => new Aluno(123456789, nome, new DateTime(), "", EnumeradorSexo.Masculino));
         }
 
         #endregion

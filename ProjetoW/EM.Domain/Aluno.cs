@@ -24,9 +24,13 @@ namespace EM.Domain
 
 
         public Aluno (int matricula, string nome, DateTime nascimento, string cpf, EnumeradorSexo sexo) {
+
             if (!(matricula >= 1 && matricula <= 999999999)) throw new MatriculaAlunoInvalidoException();
             Matricula = matricula;
+
+            if ((string.IsNullOrWhiteSpace(nome) || string.IsNullOrEmpty(nome) || nome.Length > 100)) throw new NomeAlunoInvalidoException();
             Nome = nome;
+
             Nascimento = nascimento;
             CPF = cpf;
             Sexo = sexo;
