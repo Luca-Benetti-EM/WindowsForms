@@ -60,7 +60,7 @@ namespace ProjetoW
         }
 
         [TestMethod]
-        public void Deve_Lancar_Exception_Ao_Inserir_Numeros_Fora_Do_Range()
+        public void Deve_Lancar_Exception_Ao_Inserir_Numeros_Fora_Do_Range_Matricula()
         {
             Assert.ThrowsException<MatriculaAlunoInvalidoException>(() => new Aluno(0, "A", new DateTime(), "", EnumeradorSexo.Masculino));
             Assert.ThrowsException<MatriculaAlunoInvalidoException>(() => new Aluno(1234567891, "A", new DateTime(), "", EnumeradorSexo.Masculino));
@@ -88,7 +88,7 @@ namespace ProjetoW
         }
 
         [TestMethod]
-        public void Deve_Lancar_Exception_Ao_Inserir_Nome_Fora_Do_Range() {
+        public void Deve_Lancar_Exception_Ao_Inserir_Nome_Fora_Do_Range_Nome() {
 
             Assert.ThrowsException<NomeAlunoInvalidoException>(() => new Aluno(123456789, "", new DateTime(), "", EnumeradorSexo.Masculino));
 
@@ -115,17 +115,40 @@ namespace ProjetoW
 
         #endregion
 
+        #region Testes Datas
         [TestMethod]
-        public void Deve_Aceitar_Apenas_Retroativas_Data()
+        public void Deve_Lancar_Excecao_Incorreta_Data()
         {
-
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => new Aluno(123456789, "A", new DateTime(99 - 99 - 9999), "", EnumeradorSexo.Feminino));
         }
 
+        [TestMethod]
+        public void Deve_Lancar_Excecao_Adiantada_Data()
+        {
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => new Aluno(123456789, "A", DateTime.Today.AddDays(1), "", EnumeradorSexo.Feminino));
+        }
+
+        [TestMethod]
+        public void Deve_Aceitar_Data()
+        {
+            Aluno aluno = new Aluno(123456789, "A", new DateTime(), "", EnumeradorSexo.Masculino);
+
+            Assert.AreEqual(new DateTime(), aluno.Nascimento);
+
+            aluno = new Aluno(123456789, "A", DateTime.Today, "", EnumeradorSexo.Masculino);
+
+            Assert.AreEqual(DateTime.Today, aluno.Nascimento);
+        }
+
+        #endregion
+
+        #region Testes CPF
         [TestMethod]
         public void Deve_Ser_Valido_Ou_Blank_CPF()
         {
 
         }
 
+        #endregion
     }
 }

@@ -34,8 +34,11 @@ namespace EM.Domain
             if (!(sexo == EnumeradorSexo.Feminino || sexo == EnumeradorSexo.Masculino)) throw new SexoAlunoInvalidoException();
             Sexo = sexo;
 
+            if (nascimento.Date > DateTime.Today) throw new ArgumentOutOfRangeException();
+
             Nascimento = nascimento;
 
+            if (!ValidaCPF(CPF)) throw new CPFAlunoInvalidoException();
             CPF = cpf;
         }
 
@@ -55,7 +58,5 @@ namespace EM.Domain
         {
             return base.ToString();
         }
-
-
     }
 }

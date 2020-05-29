@@ -237,7 +237,7 @@ namespace EM.WindowsForms
 
         private bool ValidaData(DateTime nascimento)
         {
-            if (nascimento == new DateTime()) return false;
+            
             if (nascimento.Date > DateTime.Today) return false;
             return true;
         }

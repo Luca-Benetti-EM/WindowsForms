@@ -27,4 +27,12 @@ namespace EM.Domain
 
         }
     }
+
+    public class CPFAlunoInvalidoException : Exception
+    {
+        public CPFAlunoInvalidoException() : base(String.Format("CPF inválido"))
+        {
+
+        }
+    }
 }
