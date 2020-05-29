@@ -27,6 +27,24 @@ namespace ProjetoW
         }
 
         [TestMethod]
+        public void Verifica_Acerto_GetHashCode()
+        {
+            Aluno A = new Aluno(1, "A", new DateTime(), "A", EnumeradorSexo.Masculino);
+            Aluno B = new Aluno(1, "B", new DateTime(), "B", EnumeradorSexo.Masculino);
+
+            Assert.AreEqual(true, A.GetHashCode() == B.GetHashCode());
+        }
+
+        [TestMethod]
+        public void Verifica_Erro_GetHashCode()
+        {
+            Aluno A = new Aluno(1, "A", new DateTime(), "A", EnumeradorSexo.Masculino);
+            Aluno B = new Aluno(2, "A", new DateTime(), "A", EnumeradorSexo.Masculino);
+
+            Assert.AreEqual(false, A.GetHashCode() == B.GetHashCode());
+        }
+
+        [TestMethod]
         public void Deve_Aceitar_Apenas_Numeros_Matricula()
         {
             Aluno aluno = new Aluno(123456789, "", new DateTime(), "", EnumeradorSexo.Masculino);
