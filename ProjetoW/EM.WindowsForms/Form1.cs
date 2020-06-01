@@ -20,9 +20,10 @@ namespace EM.WindowsForms
 
             cboSexo.DataSource = Enum.GetValues(typeof(EnumeradorSexo));
 
+            dgvListaAlunos.DataSource = bsListaAlunos;
             bsListaAlunos.DataSource = _repositorio.GetAll().OrderBy(a => a.Matricula);
             bsListaAlunos.ResetBindings(false);
-            dgvListaAlunos.DataSource = bsListaAlunos;
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -34,43 +35,49 @@ namespace EM.WindowsForms
         {
             if(string.IsNullOrEmpty(txtMatricula.Text))
             {
-                MessageBox.Show("Matricula vazia");
+                MessageBox.Show("Matricula vazia!");
                 txtMatricula.Focus();
                 return;
             }
 
-            string _cpf = "";
+            string cpf = "";
             if (!(string.IsNullOrEmpty(txtCPF.Text)
-                || string.IsNullOrWhiteSpace(txtCPF.Text))) _cpf = Convert.ToUInt64(txtCPF.Text).ToString(@"000\.000\.000\-00");
+                || string.IsNullOrWhiteSpace(txtCPF.Text))) cpf = Convert.ToUInt64(txtCPF.Text).ToString(@"000\.000\.000\-00");
 
+            DateTime data = new DateTime();
+            try
+            {
+                data = DateTime.ParseExact(txtNascimento.Text, "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("pt-BR")); //Data convertida para padrões BR
+            }
+
+            catch(Exception)
+            {
+                MessageBox.Show("Data não existe ou incorreta!");
+                txtNascimento.Focus();
+                return;
+            }
+
+            Aluno aluno = new Aluno();
+            try
+            {
+                aluno = new Aluno(Convert.ToInt32(txtMatricula.Text), txtNome.Text, data, cpf, (EnumeradorSexo)cboSexo.SelectedItem);
+            }
+
+            catch (Exception erroInstancia)
+            {
+                MessageBox.Show(erroInstancia.Message);
+                return;
+            }
 
             try
             {
-                DateTime _data = DateTime.ParseExact(txtNascimento.Text, "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("pt-BR")); //Data convertida para padrões BR
-
-               Aluno _aluno = new Aluno(Convert.ToInt32(txtMatricula.Text), txtNome.Text, _data, _cpf, (EnumeradorSexo)cboSexo.SelectedItem);
-
-                if(btnAdicionar.Text == "Adicionar") _repositorio.Add(_aluno);
-                if (btnAdicionar.Text == "Modificar") _repositorio.Update(_aluno);
+                if (btnAdicionar.Text == "Adicionar") _repositorio.Add(aluno);
+                if (btnAdicionar.Text == "Modificar") _repositorio.Update(aluno);
             }
 
-            catch(Exception erro)
+            catch (Exception erroManipular)
             {
-                if (erro is FormatException)
-                {
-                    MessageBox.Show("Data inválida");
-                    txtNascimento.Focus();
-                    return;
-                }
-
-                if(erro is NomeAlunoInvalidoException)
-                {
-                    MessageBox.Show("Nome vazio");
-                    txtNome.Focus();
-                    return;
-                }
-
-                MessageBox.Show(erro.Message);
+                MessageBox.Show(erroManipular.Message);
                 return;
             }
 
@@ -268,7 +275,7 @@ namespace EM.WindowsForms
         {
             try
             {
-                Convert.ToInt32(txtPesquisa.Text);
+                Convert.ToInt32(entrada);
             }
 
             catch

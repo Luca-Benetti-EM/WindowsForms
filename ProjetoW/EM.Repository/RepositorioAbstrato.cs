@@ -12,14 +12,14 @@ namespace EM.Repository
 
         public void Add(T objeto)
         {
-            if(ColecaoDeAlunos.IndexOf(objeto) != -1) throw new MatriculaOuCPFJaCadastrados();
+            if (ColecaoDeAlunos.IndexOf(objeto) != -1) throw new InconsistenciaException("Matrícula ou CPF já cadastrado!");
 
             ColecaoDeAlunos.Add(objeto);
         }
 
         public void Remove(T objeto)
         {
-            if (ColecaoDeAlunos.IndexOf(objeto) == -1) throw new AlunoNaoCadastradoException();
+            if (ColecaoDeAlunos.IndexOf(objeto) == -1) throw new InconsistenciaException("Aluno não existe para ser removido!");
 
             ColecaoDeAlunos.Remove(objeto);
         }

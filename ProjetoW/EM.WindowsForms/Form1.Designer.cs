@@ -196,6 +196,7 @@ namespace EM.WindowsForms
             // 
             // dgvListaAlunos
             // 
+            this.dgvListaAlunos.AllowUserToAddRows = false;
             this.dgvListaAlunos.AllowUserToDeleteRows = false;
             this.dgvListaAlunos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaAlunos.BackgroundColor = System.Drawing.SystemColors.ButtonFace;

@@ -21,6 +21,24 @@ namespace EM.Repository.Testes
         }
 
         [TestMethod]
+        public void Adiciona_CPF_Vazio_A_Colecao_De_Alunos()
+        {
+            RepositorioAluno _repositorio = new RepositorioAluno();
+
+            Aluno _aluno = new Aluno(1, "A", new DateTime(2000, 01, 25), "", EnumeradorSexo.Masculino);
+
+            _repositorio.Add(_aluno);
+
+            Assert.IsTrue(_repositorio.GetAll().Contains(_aluno));
+
+            _aluno = new Aluno(2, "B", new DateTime(2000, 01, 20), "", EnumeradorSexo.Feminino);
+
+            _repositorio.Add(_aluno);
+
+            Assert.IsTrue(_repositorio.GetAll().Contains(_aluno));
+        }
+
+        [TestMethod]
         public void Falha_Ao_Inserir_Mesma_Matricula()
         {
             RepositorioAluno _repositorio = new RepositorioAluno();
@@ -31,26 +49,9 @@ namespace EM.Repository.Testes
 
             _aluno = new Aluno(1, "B", new DateTime(20 / 01 / 2000), "", EnumeradorSexo.Feminino);
 
-            Assert.ThrowsException<MatriculaOuCPFJaCadastrados>(() => _repositorio.Add(_aluno));
+            var ex = Assert.ThrowsException<InconsistenciaException>(() => _repositorio.Add(_aluno));
+            Assert.AreEqual("Matrícula ou CPF já cadastrado!", ex.Message);
 
-        }
-
-        [TestMethod]
-        public void Aceita_CPF_Vazio()
-        {
-            RepositorioAluno _repositorio = new RepositorioAluno();
-
-            Aluno _aluno = new Aluno(1, "A", new DateTime(25 / 01 / 2000), "", EnumeradorSexo.Masculino);
-
-            _repositorio.Add(_aluno);
-
-            Assert.IsTrue(_repositorio.GetAll().Contains(_aluno));
-
-            _aluno = new Aluno(2, "B", new DateTime(20 / 01 / 2000), "", EnumeradorSexo.Feminino);
-
-            _repositorio.Add(_aluno);
-
-            Assert.IsTrue(_repositorio.GetAll().Contains(_aluno));
         }
 
         [TestMethod]
@@ -64,7 +65,8 @@ namespace EM.Repository.Testes
 
             _aluno = new Aluno(2, "B", new DateTime(20 / 01 / 2000), "412.637.180-00", EnumeradorSexo.Feminino);
 
-            Assert.ThrowsException<MatriculaOuCPFJaCadastrados>(() => _repositorio.Add(_aluno));
+            var ex = Assert.ThrowsException<InconsistenciaException>(() => _repositorio.Add(_aluno));
+            Assert.AreEqual("Matrícula ou CPF já cadastrado!", ex.Message);
         }
 
         [TestMethod]
@@ -127,10 +129,10 @@ namespace EM.Repository.Testes
         [TestMethod]
         public void Retorna_Colecao_Determinada_Get()
         {
-            Aluno _joao = new Aluno(1, "João", new DateTime(25 / 01 / 2000), "", EnumeradorSexo.Feminino);
-            Aluno _luis = new Aluno(2, "Luis", new DateTime(14 / 01 / 2008), "", EnumeradorSexo.Feminino);
-            Aluno _abraao = new Aluno(3, "Abrãao", new DateTime(01 / 01 / 1990), "", EnumeradorSexo.Masculino);
-            Aluno _luca = new Aluno(4, "Luca Benetti", new DateTime(01 / 02 / 1990), "", EnumeradorSexo.Masculino);
+            Aluno _joao = new Aluno(1, "João", new DateTime(2000, 01, 25), "", EnumeradorSexo.Feminino);
+            Aluno _luis = new Aluno(2, "Luis", new DateTime(2008, 01, 14), "", EnumeradorSexo.Feminino);
+            Aluno _abraao = new Aluno(3, "Abrãao", new DateTime(1990, 01, 01), "", EnumeradorSexo.Masculino);
+            Aluno _luca = new Aluno(4, "Luca Benetti", new DateTime(1990, 02, 01), "", EnumeradorSexo.Masculino);
             
             RepositorioAluno _repositorio = new RepositorioAluno();
 
@@ -156,10 +158,10 @@ namespace EM.Repository.Testes
         {
             RepositorioAluno _repositorio = new RepositorioAluno();
 
-            Aluno _aluno = new Aluno(1, "A", new DateTime(25 / 01 / 2000), "", EnumeradorSexo.Masculino);
+            Aluno _aluno = new Aluno(1, "A", new DateTime(2000, 01, 25), "", EnumeradorSexo.Masculino);
 
             _repositorio.Add(_aluno);
-            _repositorio.Add(new Aluno(2, "A", new DateTime(25 / 01 / 2000), "", EnumeradorSexo.Masculino));
+            _repositorio.Add(new Aluno(2, "A", new DateTime(2000, 01, 25), "", EnumeradorSexo.Masculino));
 
             Assert.AreEqual(_aluno, _repositorio.GetByMatricula(1));
 
@@ -173,9 +175,9 @@ namespace EM.Repository.Testes
         {
             RepositorioAluno _repositorio = new RepositorioAluno();
 
-            Aluno _joao = new Aluno(1, "João", new DateTime(25 / 01 / 2000), "", EnumeradorSexo.Masculino);
-            Aluno _abraao = new Aluno(2, "Abrãao", new DateTime(25 / 01 / 2000), "", EnumeradorSexo.Masculino);
-            Aluno _luca = new Aluno(3, "Luca Benetti", new DateTime(25 / 01 / 2000), "", EnumeradorSexo.Masculino);
+            Aluno _joao = new Aluno(1, "João", new DateTime(2000, 01, 25), "", EnumeradorSexo.Masculino);
+            Aluno _abraao = new Aluno(2, "Abrãao", new DateTime(2000, 01, 25), "", EnumeradorSexo.Masculino);
+            Aluno _luca = new Aluno(3, "Luca Benetti", new DateTime(2000, 01, 25), "", EnumeradorSexo.Masculino);
 
             _repositorio.Add(_joao);
             _repositorio.Add(_abraao);

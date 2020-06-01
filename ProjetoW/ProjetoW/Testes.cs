@@ -62,6 +62,22 @@ namespace ProjetoW
 
         #endregion
 
+        #region Teste ToString
+
+        [TestMethod]
+        public void Verifica_Esperado_ToString()
+        {
+            Aluno aluno = new Aluno(123456789, "A", new DateTime(), "412.637.180-00", EnumeradorSexo.Masculino);
+
+            Assert.AreEqual($"Matricula: {aluno.Matricula}, " +
+                $"Nome: {aluno.Nome}, " +
+                $"Sexo: {Convert.ToString(aluno.Sexo)}, " +
+                $"Nascimento: {aluno.Nascimento.ToString()}, " +
+                $"CPF: {aluno.CPF}", aluno.ToString());
+        }
+
+        #endregion
+
         #region Testes Matricula
         [TestMethod]
         public void Deve_Aceitar_Apenas_Numeros_Matricula()
@@ -74,8 +90,11 @@ namespace ProjetoW
         [TestMethod]
         public void Deve_Lancar_Exception_Ao_Inserir_Numeros_Fora_Do_Range_Matricula()
         {
-            Assert.ThrowsException<MatriculaAlunoInvalidoException>(() => new Aluno(0, "A", new DateTime(), "", EnumeradorSexo.Masculino));
-            Assert.ThrowsException<MatriculaAlunoInvalidoException>(() => new Aluno(1234567891, "A", new DateTime(), "", EnumeradorSexo.Masculino));
+            var ex = Assert.ThrowsException<InconsistenciaException>(() => new Aluno(0, "A", new DateTime(), "", EnumeradorSexo.Masculino));
+            Assert.AreEqual("Matrícula deve ter pelo menos 1 no máximo 9 dígitos!", ex.Message);
+
+            ex = Assert.ThrowsException<InconsistenciaException>(() => new Aluno(1234567891, "A", new DateTime(), "", EnumeradorSexo.Masculino));
+            Assert.AreEqual("Matrícula deve ter pelo menos 1 no máximo 9 dígitos!", ex.Message);
         }
 
         #endregion
@@ -83,16 +102,13 @@ namespace ProjetoW
         #region Testes Nome
 
         [TestMethod]
-        public void Deve_Aceitar_Nome ()
+        public void Deve_Aceitar_Nome()
         {
             Aluno aluno = new Aluno(123456789, "A", new DateTime(), "", EnumeradorSexo.Masculino);
 
             Assert.AreEqual("A", aluno.Nome);
 
-            string nome = "A";
-
-            for (int i = 1; i <= 99; i++)
-                nome += "A";
+            string nome = new string('A', 100);
 
             aluno = new Aluno(123456789, nome, new DateTime(), "", EnumeradorSexo.Masculino);
 
@@ -100,16 +116,16 @@ namespace ProjetoW
         }
 
         [TestMethod]
-        public void Deve_Lancar_Exception_Ao_Inserir_Nome_Fora_Do_Range_Nome() {
+        public void Deve_Lancar_Exception_Ao_Inserir_Nome_Fora_Do_Range_Nome()
+        {
 
-            Assert.ThrowsException<NomeAlunoInvalidoException>(() => new Aluno(123456789, "", new DateTime(), "", EnumeradorSexo.Masculino));
+            var ex = Assert.ThrowsException<InconsistenciaException>(() => new Aluno(123456789, "", new DateTime(), "", EnumeradorSexo.Masculino));
+            Assert.AreEqual("Nome deve conter pelo menos 1 e no máximo 100 caracteres!", ex.Message);
 
-            string nome = "A";
+            string nome = new string('A', 101);
 
-            for(int i = 1; i <= 100; i++)
-                nome += "A";
-
-            Assert.ThrowsException<NomeAlunoInvalidoException>(() => new Aluno(123456789, nome, new DateTime(), "", EnumeradorSexo.Masculino));
+            ex = Assert.ThrowsException<InconsistenciaException>(() => new Aluno(123456789, nome, new DateTime(), "", EnumeradorSexo.Masculino));
+            Assert.AreEqual("Nome deve conter pelo menos 1 e no máximo 100 caracteres!", ex.Message);
         }
 
         #endregion
@@ -128,16 +144,12 @@ namespace ProjetoW
         #endregion
 
         #region Testes Datas
-        [TestMethod]
-        public void Deve_Lancar_Excecao_Incorreta_Data()
-        {
-            Assert.ThrowsException<ArgumentOutOfRangeException>(() => new Aluno(123456789, "A", new DateTime(99 - 99 - 9999), "", EnumeradorSexo.Feminino));
-        }
 
         [TestMethod]
         public void Deve_Lancar_Excecao_Adiantada_Data()
         {
-            Assert.ThrowsException<ArgumentOutOfRangeException>(() => new Aluno(123456789, "A", DateTime.Today.AddDays(1), "", EnumeradorSexo.Feminino));
+            var ex = Assert.ThrowsException<InconsistenciaException>(() => new Aluno(123456789, "A", DateTime.Today.AddDays(1), "", EnumeradorSexo.Feminino));
+            Assert.AreEqual("Data de nascimento futura inválida!", ex.Message);
         }
 
         [TestMethod]
@@ -172,7 +184,8 @@ namespace ProjetoW
         [TestMethod]
         public void Deve_Lancar_Excecao_Invalido_CPF()
         {
-            Assert.ThrowsException<CPFAlunoInvalidoException>(() => new Aluno(123456789, "A", new DateTime(), "1", EnumeradorSexo.Masculino));
+            var ex = Assert.ThrowsException<InconsistenciaException>(() => new Aluno(123456789, "A", new DateTime(), "1", EnumeradorSexo.Masculino));
+            Assert.AreEqual("CPF inválido!", ex.Message);
         }
 
         #endregion

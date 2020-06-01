@@ -19,33 +19,34 @@ namespace EM.Domain
         public DateTime Nascimento { get; set; }
         public string CPF { get; set; }
         
-
+        
 
         public Aluno(int matricula, string nome, DateTime nascimento, string cpf, EnumeradorSexo sexo)
         {
 
-            if (!(matricula >= 1 && matricula <= 999999999)) throw new MatriculaAlunoInvalidoException();
+            if (!(matricula >= 1 && matricula <= 999999999)) throw new InconsistenciaException("Matrícula deve ter pelo menos 1 no máximo 9 dígitos!");
+            if ((string.IsNullOrWhiteSpace(nome) || string.IsNullOrEmpty(nome) || nome.Length > 100)) throw new InconsistenciaException("Nome deve conter pelo menos 1 e no máximo 100 caracteres!");
+            if (!(sexo == EnumeradorSexo.Feminino || sexo == EnumeradorSexo.Masculino)) throw new InconsistenciaException("Sexo escolhido deve ser Masculino ou Feminino!");
+            if (nascimento.Date > DateTime.Today) throw new InconsistenciaException("Data de nascimento futura inválida!");
+            if (!ValidaCPF(cpf)) throw new InconsistenciaException("CPF inválido!");
+
             Matricula = matricula;
-
-            if ((string.IsNullOrWhiteSpace(nome) || string.IsNullOrEmpty(nome) || nome.Length > 100)) throw new NomeAlunoInvalidoException();
             Nome = nome;
-
-            if (!(sexo == EnumeradorSexo.Feminino || sexo == EnumeradorSexo.Masculino)) throw new SexoAlunoInvalidoException();
             Sexo = sexo;
-
-            if (nascimento.Date > DateTime.Today) throw new ArgumentOutOfRangeException();
             Nascimento = nascimento;
-
-            if (!ValidaCPF(cpf)) throw new CPFAlunoInvalidoException();
             CPF = cpf;
+        }
+
+        public Aluno ()
+        {
+
         }
 
         public override bool Equals(object obj)
         {
-            Aluno aluno = (Aluno)obj;
+            Aluno aluno = (Aluno) obj;
 
-            return (Matricula == aluno.Matricula 
-                || (CPF == aluno.CPF && !string.IsNullOrEmpty(CPF)));
+            return (Matricula == aluno.Matricula || (CPF == aluno.CPF && !string.IsNullOrEmpty(CPF)));
         }
 
         public override int GetHashCode()
@@ -54,8 +55,8 @@ namespace EM.Domain
         }
 
         public override string ToString()
-        {
-            return base.ToString();
+        {   
+            return $@"Matricula: {Matricula}, Nome: {Nome}, Sexo: {Sexo}, Nascimento: {Nascimento}, CPF: {CPF}";
         }
 
         private bool ValidaCPF(string cpf)
