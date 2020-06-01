@@ -41,8 +41,10 @@ namespace EM.WindowsForms
             }
 
             string cpf = "";
-            if (!(string.IsNullOrEmpty(txtCPF.Text)
-                || string.IsNullOrWhiteSpace(txtCPF.Text))) cpf = Convert.ToUInt64(txtCPF.Text).ToString(@"000\.000\.000\-00");
+            if (!(string.IsNullOrWhiteSpace(txtCPF.Text)))
+            {
+                cpf = Convert.ToUInt64(txtCPF.Text).ToString(@"000\.000\.000\-00");
+            }
 
             DateTime data = new DateTime();
             try
@@ -228,7 +230,6 @@ namespace EM.WindowsForms
                 bsListaAlunos.DataSource = _repositorio.GetByContendoNoNome(txtPesquisa.Text).OrderBy(a => a.Nome);
             }
 
-            bsListaAlunos.ResetBindings(false);
         }
 
         private void txtMatricula_KeyPress(object sender, KeyPressEventArgs e)

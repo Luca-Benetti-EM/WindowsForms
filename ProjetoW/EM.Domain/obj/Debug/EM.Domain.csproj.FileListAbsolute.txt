@@ -39,3 +39,4 @@ C:\work\WindowsForms\ProjetoW\EM.Domain\bin\Debug\EM.Domain.pdb
 C:\work\WindowsForms\ProjetoW\EM.Domain\obj\Debug\EM.Domain.csproj.CoreCompileInputs.cache
 C:\work\WindowsForms\ProjetoW\EM.Domain\obj\Debug\EM.Domain.dll
 C:\work\WindowsForms\ProjetoW\EM.Domain\obj\Debug\EM.Domain.pdb
+C:\work\WindowsForms\ProjetoW\EM.Domain\obj\Debug\EM.Domain.csprojAssemblyReference.cache

@@ -25,7 +25,7 @@ namespace EM.Domain
         {
 
             if (!(matricula >= 1 && matricula <= 999999999)) throw new InconsistenciaException("Matrícula deve ter pelo menos 1 no máximo 9 dígitos!");
-            if ((string.IsNullOrWhiteSpace(nome) || string.IsNullOrEmpty(nome) || nome.Length > 100)) throw new InconsistenciaException("Nome deve conter pelo menos 1 e no máximo 100 caracteres!");
+            if ((string.IsNullOrWhiteSpace(nome) || nome.Length > 100)) throw new InconsistenciaException("Nome deve conter pelo menos 1 e no máximo 100 caracteres!");
             if (!(sexo == EnumeradorSexo.Feminino || sexo == EnumeradorSexo.Masculino)) throw new InconsistenciaException("Sexo escolhido deve ser Masculino ou Feminino!");
             if (nascimento.Date > DateTime.Today) throw new InconsistenciaException("Data de nascimento futura inválida!");
             if (!ValidaCPF(cpf)) throw new InconsistenciaException("CPF inválido!");
@@ -61,8 +61,16 @@ namespace EM.Domain
 
         private bool ValidaCPF(string cpf)
         {
-            if (string.IsNullOrEmpty(cpf) || string.IsNullOrWhiteSpace(cpf)) return true;
-            if (cpf.Distinct().Count() <= 3) return false;
+            if (string.IsNullOrEmpty(cpf) || string.IsNullOrWhiteSpace(cpf))
+            {
+                return true;
+            }
+
+            if (cpf.Distinct().Count() <= 3)
+            {
+                return false;
+            }
+
             int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
             string tempCpf;
