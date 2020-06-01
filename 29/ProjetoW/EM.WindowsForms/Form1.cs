@@ -237,7 +237,7 @@ namespace EM.WindowsForms
 
         private bool ValidaData(DateTime nascimento)
         {
-            
+            if (nascimento == new DateTime()) return false;
             if (nascimento.Date > DateTime.Today) return false;
             return true;
         }
@@ -404,7 +404,7 @@ namespace EM.WindowsForms
         {
             Aluno aluno = new Aluno(matricula, "", new DateTime(), "", EnumeradorSexo.Masculino);
 
-            if (repositorio.Get(a => a.Matricula == aluno.Matricula) != null)
+            if (repositorio.Get(a => a == aluno.Matricula) != null)
             {
                 return true;
             }

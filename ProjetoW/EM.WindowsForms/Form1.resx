@@ -172,85 +172,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pnlSuperior.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="btnCancelar.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="btnCancelar.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Popup</value>
-  </data>
-  <data name="btnCancelar.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Comic Sans MS, 9pt</value>
-  </data>
-  <data name="btnCancelar.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnCancelar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>422, 63</value>
-  </data>
-  <data name="btnCancelar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 23</value>
-  </data>
-  <data name="btnCancelar.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="btnCancelar.Text" xml:space="preserve">
-    <value>Cancelar</value>
-  </data>
-  <data name="btnCancelar.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;btnCancelar.Name" xml:space="preserve">
-    <value>btnCancelar</value>
-  </data>
-  <data name="&gt;&gt;btnCancelar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnCancelar.Parent" xml:space="preserve">
-    <value>pnlPrincipal</value>
-  </data>
-  <data name="&gt;&gt;btnCancelar.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="btnModificar.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="btnModificar.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Popup</value>
-  </data>
-  <data name="btnModificar.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Comic Sans MS, 9pt</value>
-  </data>
-  <data name="btnModificar.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnModificar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>529, 63</value>
-  </data>
-  <data name="btnModificar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 23</value>
-  </data>
-  <data name="btnModificar.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="btnModificar.Text" xml:space="preserve">
-    <value>Modificar</value>
-  </data>
-  <data name="btnModificar.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;btnModificar.Name" xml:space="preserve">
-    <value>btnModificar</value>
-  </data>
-  <data name="&gt;&gt;btnModificar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnModificar.Parent" xml:space="preserve">
-    <value>pnlPrincipal</value>
-  </data>
-  <data name="&gt;&gt;btnModificar.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>7</value>
   </data>
   <data name="txtCPF.Location" type="System.Drawing.Point, System.Drawing">
     <value>279, 84</value>
@@ -274,7 +196,7 @@
     <value>pnlPrincipal</value>
   </data>
   <data name="&gt;&gt;txtCPF.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>0</value>
   </data>
   <data name="txtMatricula.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 27</value>
@@ -288,6 +210,9 @@
   <data name="txtMatricula.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <data name="txtMatricula.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
   <data name="&gt;&gt;txtMatricula.Name" xml:space="preserve">
     <value>txtMatricula</value>
   </data>
@@ -298,7 +223,7 @@
     <value>pnlPrincipal</value>
   </data>
   <data name="&gt;&gt;txtMatricula.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>1</value>
   </data>
   <data name="txtNascimento.Location" type="System.Drawing.Point, System.Drawing">
     <value>135, 84</value>
@@ -322,7 +247,7 @@
     <value>pnlPrincipal</value>
   </data>
   <data name="&gt;&gt;txtNascimento.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>2</value>
   </data>
   <data name="btnAdicionar.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
@@ -355,7 +280,7 @@
     <value>pnlPrincipal</value>
   </data>
   <data name="&gt;&gt;btnAdicionar.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>3</value>
   </data>
   <data name="btnLimpar.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
@@ -388,7 +313,7 @@
     <value>pnlPrincipal</value>
   </data>
   <data name="&gt;&gt;btnLimpar.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>4</value>
   </data>
   <data name="lblCPF.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -421,7 +346,7 @@
     <value>pnlPrincipal</value>
   </data>
   <data name="&gt;&gt;lblCPF.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>5</value>
   </data>
   <data name="lblNascimento.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -454,7 +379,7 @@
     <value>pnlPrincipal</value>
   </data>
   <data name="&gt;&gt;lblNascimento.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>6</value>
   </data>
   <data name="cboSexo.Items" xml:space="preserve">
     <value>Masculino</value>
@@ -481,7 +406,7 @@
     <value>pnlPrincipal</value>
   </data>
   <data name="&gt;&gt;cboSexo.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>7</value>
   </data>
   <data name="lblSexo.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -514,7 +439,7 @@
     <value>pnlPrincipal</value>
   </data>
   <data name="&gt;&gt;lblSexo.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>8</value>
   </data>
   <data name="txtNome.Location" type="System.Drawing.Point, System.Drawing">
     <value>135, 27</value>
@@ -538,7 +463,7 @@
     <value>pnlPrincipal</value>
   </data>
   <data name="&gt;&gt;txtNome.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>9</value>
   </data>
   <data name="lblNome.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -571,7 +496,7 @@
     <value>pnlPrincipal</value>
   </data>
   <data name="&gt;&gt;lblNome.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>10</value>
   </data>
   <data name="lblMatricula.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -604,7 +529,7 @@
     <value>pnlPrincipal</value>
   </data>
   <data name="&gt;&gt;lblMatricula.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>11</value>
   </data>
   <data name="pnlPrincipal.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 54</value>
@@ -625,7 +550,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pnlPrincipal.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="lblNovoAluno.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -658,7 +583,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblNovoAluno.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="btnPesquisar.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
@@ -691,7 +616,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnPesquisar.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="btnEditar.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
@@ -703,7 +628,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnEditar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>438, 330</value>
+    <value>438, 337</value>
   </data>
   <data name="btnEditar.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 23</value>
@@ -724,7 +649,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnEditar.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="btnExcluir.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
@@ -736,7 +661,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnExcluir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>537, 330</value>
+    <value>537, 337</value>
   </data>
   <data name="btnExcluir.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 23</value>
@@ -757,31 +682,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnExcluir.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
-  <data name="matriculaDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>Matricula</value>
-  </data>
-  <data name="nomeDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>Nome</value>
-  </data>
-  <data name="sexoDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>Sexo</value>
-  </data>
-  <data name="nascimentoDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>Nascimento</value>
-  </data>
-  <data name="cPFDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
-    <value>CPF</value>
-  </data>
-  <metadata name="bsAluno.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="dgvListaAlunos.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 220</value>
   </data>
   <data name="dgvListaAlunos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>612, 100</value>
+    <value>612, 111</value>
   </data>
   <data name="dgvListaAlunos.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -796,10 +703,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dgvListaAlunos.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="txtPesquisa.Location" type="System.Drawing.Point, System.Drawing">
     <value>14, 190</value>
+  </data>
+  <data name="txtPesquisa.MaxLength" type="System.Int32, mscorlib">
+    <value>100</value>
   </data>
   <data name="txtPesquisa.Size" type="System.Drawing.Size, System.Drawing">
     <value>523, 20</value>
@@ -817,45 +727,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtPesquisa.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="btnNovo.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="btnNovo.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Popup</value>
-  </data>
-  <data name="btnNovo.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Comic Sans MS, 9pt</value>
-  </data>
-  <data name="btnNovo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnNovo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>378, 330</value>
-  </data>
-  <data name="btnNovo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 23</value>
-  </data>
-  <data name="btnNovo.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="btnNovo.Text" xml:space="preserve">
-    <value>Novo</value>
-  </data>
-  <data name="btnNovo.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;btnNovo.Name" xml:space="preserve">
-    <value>btnNovo</value>
-  </data>
-  <data name="&gt;&gt;btnNovo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnNovo.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnNovo.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -872,42 +743,6 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Cadastro</value>
-  </data>
-  <data name="&gt;&gt;matriculaDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>matriculaDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;matriculaDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nomeDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>nomeDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;nomeDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;sexoDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>sexoDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;sexoDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nascimentoDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>nascimentoDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;nascimentoDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cPFDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>cPFDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;cPFDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bsAluno.Name" xml:space="preserve">
-    <value>bsAluno</value>
-  </data>
-  <data name="&gt;&gt;bsAluno.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Cadastro</value>

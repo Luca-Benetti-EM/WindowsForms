@@ -30,15 +30,12 @@ namespace EM.WindowsForms
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cadastro));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlSuperior = new System.Windows.Forms.Panel();
             this.lblCadastroDeAlunos = new System.Windows.Forms.Label();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
             this.txtCPF = new System.Windows.Forms.TextBox();
             this.txtMatricula = new System.Windows.Forms.TextBox();
             this.txtNascimento = new System.Windows.Forms.MaskedTextBox();
@@ -56,18 +53,10 @@ namespace EM.WindowsForms
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.dgvListaAlunos = new System.Windows.Forms.DataGridView();
-            this.matriculaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sexoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nascimentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cPFDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsAluno = new System.Windows.Forms.BindingSource(this.components);
             this.txtPesquisa = new System.Windows.Forms.TextBox();
-            this.btnNovo = new System.Windows.Forms.Button();
             this.pnlSuperior.SuspendLayout();
             this.pnlPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaAlunos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsAluno)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSuperior
@@ -86,8 +75,6 @@ namespace EM.WindowsForms
             // pnlPrincipal
             // 
             this.pnlPrincipal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlPrincipal.Controls.Add(this.btnCancelar);
-            this.pnlPrincipal.Controls.Add(this.btnModificar);
             this.pnlPrincipal.Controls.Add(this.txtCPF);
             this.pnlPrincipal.Controls.Add(this.txtMatricula);
             this.pnlPrincipal.Controls.Add(this.txtNascimento);
@@ -103,29 +90,17 @@ namespace EM.WindowsForms
             resources.ApplyResources(this.pnlPrincipal, "pnlPrincipal");
             this.pnlPrincipal.Name = "pnlPrincipal";
             // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            resources.ApplyResources(this.btnCancelar, "btnCancelar");
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            resources.ApplyResources(this.btnModificar, "btnModificar");
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.UseVisualStyleBackColor = false;
-            // 
             // txtCPF
             // 
             resources.ApplyResources(this.txtCPF, "txtCPF");
             this.txtCPF.Name = "txtCPF";
+            this.txtCPF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCPF_KeyPress);
             // 
             // txtMatricula
             // 
             resources.ApplyResources(this.txtMatricula, "txtMatricula");
             this.txtMatricula.Name = "txtMatricula";
+            this.txtMatricula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMatricula_KeyPress);
             // 
             // txtNascimento
             // 
@@ -139,6 +114,7 @@ namespace EM.WindowsForms
             resources.ApplyResources(this.btnAdicionar, "btnAdicionar");
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.UseVisualStyleBackColor = false;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // btnLimpar
             // 
@@ -146,6 +122,7 @@ namespace EM.WindowsForms
             resources.ApplyResources(this.btnLimpar, "btnLimpar");
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.UseVisualStyleBackColor = false;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // lblCPF
             // 
@@ -176,6 +153,7 @@ namespace EM.WindowsForms
             // 
             resources.ApplyResources(this.txtNome, "txtNome");
             this.txtNome.Name = "txtNome";
+            this.txtNome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNome_KeyPress);
             // 
             // lblNome
             // 
@@ -198,6 +176,7 @@ namespace EM.WindowsForms
             resources.ApplyResources(this.btnPesquisar, "btnPesquisar");
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnEditar
             // 
@@ -205,6 +184,7 @@ namespace EM.WindowsForms
             resources.ApplyResources(this.btnEditar, "btnEditar");
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnExcluir
             // 
@@ -212,10 +192,11 @@ namespace EM.WindowsForms
             resources.ApplyResources(this.btnExcluir, "btnExcluir");
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // dgvListaAlunos
             // 
-            this.dgvListaAlunos.AutoGenerateColumns = false;
+            this.dgvListaAlunos.AllowUserToDeleteRows = false;
             this.dgvListaAlunos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaAlunos.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -227,13 +208,6 @@ namespace EM.WindowsForms
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvListaAlunos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvListaAlunos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaAlunos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.matriculaDataGridViewTextBoxColumn,
-            this.nomeDataGridViewTextBoxColumn,
-            this.sexoDataGridViewTextBoxColumn,
-            this.nascimentoDataGridViewTextBoxColumn,
-            this.cPFDataGridViewTextBoxColumn});
-            this.dgvListaAlunos.DataSource = this.bsAluno;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -250,63 +224,19 @@ namespace EM.WindowsForms
             this.dgvListaAlunos.ReadOnly = true;
             this.dgvListaAlunos.RowHeadersVisible = false;
             this.dgvListaAlunos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            // 
-            // matriculaDataGridViewTextBoxColumn
-            // 
-            this.matriculaDataGridViewTextBoxColumn.DataPropertyName = "Matricula";
-            resources.ApplyResources(this.matriculaDataGridViewTextBoxColumn, "matriculaDataGridViewTextBoxColumn");
-            this.matriculaDataGridViewTextBoxColumn.Name = "matriculaDataGridViewTextBoxColumn";
-            this.matriculaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nomeDataGridViewTextBoxColumn
-            // 
-            this.nomeDataGridViewTextBoxColumn.DataPropertyName = "Nome";
-            resources.ApplyResources(this.nomeDataGridViewTextBoxColumn, "nomeDataGridViewTextBoxColumn");
-            this.nomeDataGridViewTextBoxColumn.Name = "nomeDataGridViewTextBoxColumn";
-            this.nomeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sexoDataGridViewTextBoxColumn
-            // 
-            this.sexoDataGridViewTextBoxColumn.DataPropertyName = "Sexo";
-            resources.ApplyResources(this.sexoDataGridViewTextBoxColumn, "sexoDataGridViewTextBoxColumn");
-            this.sexoDataGridViewTextBoxColumn.Name = "sexoDataGridViewTextBoxColumn";
-            this.sexoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nascimentoDataGridViewTextBoxColumn
-            // 
-            this.nascimentoDataGridViewTextBoxColumn.DataPropertyName = "Nascimento";
-            resources.ApplyResources(this.nascimentoDataGridViewTextBoxColumn, "nascimentoDataGridViewTextBoxColumn");
-            this.nascimentoDataGridViewTextBoxColumn.Name = "nascimentoDataGridViewTextBoxColumn";
-            this.nascimentoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cPFDataGridViewTextBoxColumn
-            // 
-            this.cPFDataGridViewTextBoxColumn.DataPropertyName = "CPF";
-            resources.ApplyResources(this.cPFDataGridViewTextBoxColumn, "cPFDataGridViewTextBoxColumn");
-            this.cPFDataGridViewTextBoxColumn.Name = "cPFDataGridViewTextBoxColumn";
-            this.cPFDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bsAluno
-            // 
-            this.bsAluno.DataSource = typeof(EM.Domain.Aluno);
+            this.dgvListaAlunos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaAlunos_CellClick);
+            this.dgvListaAlunos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaAlunos_CellDoubleClick);
             // 
             // txtPesquisa
             // 
             resources.ApplyResources(this.txtPesquisa, "txtPesquisa");
             this.txtPesquisa.Name = "txtPesquisa";
-            // 
-            // btnNovo
-            // 
-            this.btnNovo.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            resources.ApplyResources(this.btnNovo, "btnNovo");
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.UseVisualStyleBackColor = false;
+            this.txtPesquisa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisa_KeyPress);
             // 
             // Cadastro
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.txtPesquisa);
             this.Controls.Add(this.dgvListaAlunos);
             this.Controls.Add(this.btnExcluir);
@@ -324,7 +254,6 @@ namespace EM.WindowsForms
             this.pnlPrincipal.ResumeLayout(false);
             this.pnlPrincipal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaAlunos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsAluno)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,15 +282,6 @@ namespace EM.WindowsForms
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtCPF;
         private System.Windows.Forms.TextBox txtMatricula;
-        private System.Windows.Forms.BindingSource bsAluno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn matriculaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sexoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nascimentoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cPFDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnNovo;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnModificar;
     }
 }
 

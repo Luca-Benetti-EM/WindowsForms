@@ -2,50 +2,42 @@
 using EM.Domain;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Linq.Expressions;
-using System.ComponentModel;
 
 namespace EM.Repository
 {
     public abstract class RepositorioAbstrato<T> where T : IEntidade
     {
-        protected BindingList<T> ColecaodeAlunos = new BindingList<T>();
+        protected List<T> ColecaoDeAlunos = new List<T>();
 
         public void Add(T objeto)
         {
-            ColecaodeAlunos.Add(objeto);
+            if(ColecaoDeAlunos.IndexOf(objeto) != -1) throw new MatriculaOuCPFJaCadastrados();
+
+            ColecaoDeAlunos.Add(objeto);
         }
 
         public void Remove(T objeto)
         {
-            object cast = objeto;
+            if (ColecaoDeAlunos.IndexOf(objeto) == -1) throw new AlunoNaoCadastradoException();
 
-            Aluno aluno = (Aluno) cast;
-            RepositorioAluno repositorioAluno = new RepositorioAluno();
-
-            cast = repositorioAluno.GetByMatricula(aluno.Matricula);
-
-            ColecaodeAlunos.Remove((T)cast);
+            ColecaoDeAlunos.Remove(objeto);
         }
 
-        public void Update(T objeto) {
+        public void Update(T objeto)
+        {
             Remove(objeto);
             Add(objeto);
         }
 
-        public IEnumerable<T> GetAll() {
-            return (IEnumerable<T>)ColecaodeAlunos;
+        public IEnumerable<T> GetAll()
+        {
+            return (IEnumerable<T>)ColecaoDeAlunos;
         }
 
-        public IEnumerable<T> Get(Expression<Func<T, bool>> predicate) 
+        public IEnumerable<T> Get(Expression<Func<T, bool>> predicate)
         {
-            var query = ColecaodeAlunos.Where(predicate.Compile());
-
-            //if(query.Count() == 0) return null;
-
-            return query;
+            return ColecaoDeAlunos.Where(predicate.Compile());
         }
     }
 }

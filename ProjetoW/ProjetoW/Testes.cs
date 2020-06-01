@@ -16,15 +16,27 @@ namespace ProjetoW
             Aluno B = new Aluno(1, "A", new DateTime(), "", EnumeradorSexo.Masculino);
 
             Assert.AreEqual(true, A.Equals(B));
+
+            A = new Aluno(1, "A", new DateTime(), "412.637.180-00", EnumeradorSexo.Masculino);
+            B = new Aluno(1, "A", new DateTime(), "", EnumeradorSexo.Masculino);
+
+            Assert.AreEqual(true, A.Equals(B));
+
         }
 
         [TestMethod]
         public void Verifica_Falha_Equals()
         {
             Aluno A = new Aluno(1, "A", new DateTime(), "", EnumeradorSexo.Masculino);
-            Aluno B = new Aluno(1, "B", new DateTime(), "", EnumeradorSexo.Masculino);
+            Aluno B = new Aluno(2, "A", new DateTime(), "", EnumeradorSexo.Masculino);
 
             Assert.AreEqual(false, A.Equals(B));
+
+            A = new Aluno(1, "A", new DateTime(), "", EnumeradorSexo.Masculino);
+            B = new Aluno(2, "A", new DateTime(), "412.637.180-00", EnumeradorSexo.Masculino);
+
+            Assert.AreEqual(false, A.Equals(B));
+
         }
 
         #endregion

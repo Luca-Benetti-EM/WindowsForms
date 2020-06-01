@@ -52,11 +52,11 @@ C:\work\ProjetoW\EM.Repository\obj\Debug\EM.Repository.pdb
 C:\work\WindowsForms\ProjetoW\EM.Repository\bin\Debug\EM.Repository.dll
 C:\work\WindowsForms\ProjetoW\EM.Repository\bin\Debug\EM.Repository.pdb
 C:\work\WindowsForms\ProjetoW\EM.Repository\bin\Debug\EM.Domain.dll
+C:\work\WindowsForms\ProjetoW\EM.Repository\bin\Debug\EM.MetodosExtensao.dll
 C:\work\WindowsForms\ProjetoW\EM.Repository\bin\Debug\EM.Domain.pdb
+C:\work\WindowsForms\ProjetoW\EM.Repository\bin\Debug\EM.MetodosExtensao.pdb
 C:\work\WindowsForms\ProjetoW\EM.Repository\obj\Debug\EM.Repository.csprojAssemblyReference.cache
 C:\work\WindowsForms\ProjetoW\EM.Repository\obj\Debug\EM.Repository.csproj.CoreCompileInputs.cache
 C:\work\WindowsForms\ProjetoW\EM.Repository\obj\Debug\EM.Repository.csproj.CopyComplete
 C:\work\WindowsForms\ProjetoW\EM.Repository\obj\Debug\EM.Repository.dll
 C:\work\WindowsForms\ProjetoW\EM.Repository\obj\Debug\EM.Repository.pdb
-C:\work\WindowsForms\ProjetoW\EM.Repository\bin\Debug\EM.MetodosExtensao.dll
-C:\work\WindowsForms\ProjetoW\EM.Repository\bin\Debug\EM.MetodosExtensao.pdb

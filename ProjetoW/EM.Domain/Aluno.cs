@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EM.Domain
 {
@@ -16,11 +12,13 @@ namespace EM.Domain
     public class Aluno : IEntidade
     {
 
-        public int Matricula;
-        public string Nome;
-        public DateTime Nascimento;
-        public string CPF;
-        public EnumeradorSexo Sexo;
+        public int Matricula { get; set; }
+        public string Nome { get; set; }
+
+        public EnumeradorSexo Sexo { get; set; }
+        public DateTime Nascimento { get; set; }
+        public string CPF { get; set; }
+        
 
 
         public Aluno(int matricula, string nome, DateTime nascimento, string cpf, EnumeradorSexo sexo)
@@ -46,7 +44,8 @@ namespace EM.Domain
         {
             Aluno aluno = (Aluno)obj;
 
-            return (this.Matricula == aluno.Matricula) && (this.Nome == aluno.Nome) && (this.Nascimento == aluno.Nascimento) && (this.CPF == aluno.CPF) && (this.Sexo == aluno.Sexo);
+            return (Matricula == aluno.Matricula 
+                || (CPF == aluno.CPF && !string.IsNullOrEmpty(CPF)));
         }
 
         public override int GetHashCode()

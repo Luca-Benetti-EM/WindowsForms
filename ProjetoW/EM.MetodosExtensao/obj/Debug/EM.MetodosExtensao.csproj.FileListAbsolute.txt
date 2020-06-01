@@ -1,6 +1,6 @@
-C:\work\WindowsForms\ProjetoW\EM.MetodosExtensao\obj\Debug\EM.MetodosExtensao.csproj.CoreCompileInputs.cache
 C:\work\WindowsForms\ProjetoW\EM.MetodosExtensao\bin\Debug\EM.MetodosExtensao.dll
 C:\work\WindowsForms\ProjetoW\EM.MetodosExtensao\bin\Debug\EM.MetodosExtensao.pdb
+C:\work\WindowsForms\ProjetoW\EM.MetodosExtensao\obj\Debug\EM.MetodosExtensao.csproj.CoreCompileInputs.cache
 C:\work\WindowsForms\ProjetoW\EM.MetodosExtensao\obj\Debug\EM.MetodosExtensao.dll
 C:\work\WindowsForms\ProjetoW\EM.MetodosExtensao\obj\Debug\EM.MetodosExtensao.pdb
 C:\work\WindowsForms\ProjetoW\EM.MetodosExtensao\obj\Debug\EM.MetodosExtensao.csprojAssemblyReference.cache
