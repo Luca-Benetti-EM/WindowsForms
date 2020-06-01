@@ -226,6 +226,7 @@ namespace EM.WindowsForms
             this.dgvListaAlunos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaAlunos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaAlunos_CellClick);
             this.dgvListaAlunos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaAlunos_CellDoubleClick);
+            this.dgvListaAlunos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvListaAlunos_KeyDown);
             // 
             // txtPesquisa
             // 

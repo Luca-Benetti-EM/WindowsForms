@@ -256,6 +256,14 @@ namespace EM.WindowsForms
             }
         }
 
+        private void dgvListaAlunos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                btnExcluir_Click(sender, e);
+            }
+        }
+
         private bool EhInt(string entrada)
         {
             try
