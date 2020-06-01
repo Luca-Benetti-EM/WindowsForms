@@ -250,7 +250,6 @@ namespace EM.WindowsForms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Cadastro";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.pnlSuperior.ResumeLayout(false);
             this.pnlSuperior.PerformLayout();
             this.pnlPrincipal.ResumeLayout(false);

@@ -69,11 +69,7 @@ namespace ProjetoW
         {
             Aluno aluno = new Aluno(123456789, "A", new DateTime(), "412.637.180-00", EnumeradorSexo.Masculino);
 
-            Assert.AreEqual($"Matricula: {aluno.Matricula}, " +
-                $"Nome: {aluno.Nome}, " +
-                $"Sexo: {Convert.ToString(aluno.Sexo)}, " +
-                $"Nascimento: {aluno.Nascimento.ToString()}, " +
-                $"CPF: {aluno.CPF}", aluno.ToString());
+            Assert.AreEqual($"Matricula: {aluno.Matricula}, Nome: {aluno.Nome}, Sexo: {aluno.Sexo}, Nascimento: {aluno.Nascimento}, CPF: {aluno.CPF}", aluno.ToString());
         }
 
         #endregion

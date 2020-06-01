@@ -26,10 +26,7 @@ namespace EM.WindowsForms
             
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
-        }
+        #region Ações
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
@@ -272,19 +269,15 @@ namespace EM.WindowsForms
             }
         }
 
+        #endregion
+
+        #region Métodos Utilitários
+
         private bool EhInt(string entrada)
         {
-            try
-            {
-                Convert.ToInt32(entrada);
-            }
-
-            catch
-            {
-                return false;
-            }
-
-            return true;
+            return Int32.TryParse(entrada, out _);
         }
+
+        #endregion
     }
 }
