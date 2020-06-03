@@ -117,3 +117,4 @@ C:\work\WindowsForms\ProjetoW\EM.WindowsForms\obj\Debug\pt-BR\EM.WindowsForms.re
 C:\work\WindowsForms\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csproj.CopyComplete
 C:\work\WindowsForms\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.exe
 C:\work\WindowsForms\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.pdb
+C:\work\WindowsForms\ProjetoW\EM.WindowsForms\bin\Debug\FirebirdSql.Data.FirebirdClient.dll

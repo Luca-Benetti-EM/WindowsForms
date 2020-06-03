@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using EM.Repository;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using FirebirdSql.Data.FirebirdClient;
 
 namespace EM.WindowsForms
 {
@@ -23,7 +24,7 @@ namespace EM.WindowsForms
             dgvListaAlunos.DataSource = bsListaAlunos;
             bsListaAlunos.DataSource = _repositorio.GetAll().OrderBy(a => a.Matricula);
             bsListaAlunos.ResetBindings(false);
-            
+
         }
 
         #region Ações

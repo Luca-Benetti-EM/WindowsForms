@@ -40,3 +40,5 @@ C:\work\WindowsForms\ProjetoW\EM.Domain\obj\Debug\EM.Domain.csproj.CoreCompileIn
 C:\work\WindowsForms\ProjetoW\EM.Domain\obj\Debug\EM.Domain.dll
 C:\work\WindowsForms\ProjetoW\EM.Domain\obj\Debug\EM.Domain.pdb
 C:\work\WindowsForms\ProjetoW\EM.Domain\obj\Debug\EM.Domain.csprojAssemblyReference.cache
+C:\work\WindowsForms\ProjetoW\EM.Domain\bin\Debug\FirebirdSql.Data.FirebirdClient.dll
+C:\work\WindowsForms\ProjetoW\EM.Domain\obj\Debug\EM.Domain.csproj.CopyComplete
