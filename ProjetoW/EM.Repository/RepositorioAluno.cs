@@ -13,7 +13,7 @@ namespace EM.Repository
     {
         #region Firebird Config
 
-        private static readonly string configuracaoBD = @"User=SYSDBA;Password=masterkey;Database=E:\dados\CADASTRO.fdb;DataSource=localhost;Port=3050;Dialect=3;Charset=NONE;Role=;Connection lifetime=15;Pooling=true;MinPoolSize=0;MaxPoolSize=50;Packet Size=8192;
+        private static readonly string configuracaoBD = @"User=SYSDBA;Password=masterkey;Database=E:\dados\cadastrolatin.fdb;DataSource=localhost;Port=3050;Dialect=3;Charset=iso8859_1;Role=;Connection lifetime=15;Pooling=true;MinPoolSize=0;MaxPoolSize=50;Packet Size=8192;
 ServerType=0";
 
         private FbConnection ConectarBD()
@@ -190,7 +190,47 @@ ServerType=0";
 
         public IEnumerable<Aluno> GetByContendoNoNome(string parteDoNome)
         {
-            return new List<Aluno>();
+            using (var conexaoFireBird = ConectarBD())
+            {
+                try
+                {
+                    conexaoFireBird.Open();
+                    var mSQL = $"SELECT * FROM ALUNOS WHERE NOME COLLATE PT_BR LIKE '%{parteDoNome}%'";
+                    var ColecaoDeAlunos = new List<Aluno>();
+                    using (var cmd = new FbCommand(mSQL, conexaoFireBird))
+                    {
+                        using (var dr = cmd.ExecuteReader())
+                        {
+
+                            while (dr.Read())
+                            {
+                                var aluno = new Aluno
+                                {
+                                    Matricula = Convert.ToInt32(dr[0]),
+                                    Nome = dr[1].ToString(),
+                                    Sexo = (EnumeradorSexo)dr[2],
+                                    Nascimento = DateTime.ParseExact(dr[3].ToString(), "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("pt-BR")),
+                                    CPF = dr[4].ToString()
+                                };
+
+                                ColecaoDeAlunos.Add(aluno);
+                            }
+                        }
+                    }
+                    conexaoFireBird.Close();
+                    return ColecaoDeAlunos;
+                }
+
+                catch (FbException fbex)
+                {
+                    throw fbex;
+                }
+
+                finally
+                {
+                    conexaoFireBird.Close();
+                }
+            }
         }
 
     }
