@@ -22,7 +22,8 @@ namespace EM.WindowsForms
             cboSexo.DataSource = Enum.GetValues(typeof(EnumeradorSexo));
 
             dgvListaAlunos.DataSource = bsListaAlunos;
-            bsListaAlunos.DataSource = _repositorio.GetAll().OrderBy(a => a.Matricula);
+            //dgvListaAlunos.DataSource = AcessoFB.fb_GetDados();
+            bsListaAlunos.DataSource = AcessoFB.fb_GetDados();
             bsListaAlunos.ResetBindings(false);
 
         }
@@ -71,7 +72,7 @@ namespace EM.WindowsForms
 
             try
             {
-                if (btnAdicionar.Text == "Adicionar") _repositorio.Add(aluno);
+                if (btnAdicionar.Text == "Adicionar") AcessoFB.fb_InserirDados(aluno);
                 if (btnAdicionar.Text == "Modificar") _repositorio.Update(aluno);
             }
 
@@ -80,6 +81,8 @@ namespace EM.WindowsForms
                 MessageBox.Show(erroManipular.Message);
                 return;
             }
+
+
 
             bsListaAlunos.DataSource = _repositorio.GetAll().OrderBy(a => a.Matricula);
             if (btnAdicionar.Text == "Modificar") MessageBox.Show("Modificado com sucesso");

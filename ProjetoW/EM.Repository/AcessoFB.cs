@@ -23,7 +23,8 @@ namespace EM.Repository
 
         public FbConnection getConexao()
         {
-            string configuration = ConfigurationManager.ConnectionStrings["FireBirdConnectionString"].ToString();
+            string configuration = @"User=SYSDBA;Password=masterkey;Database=E:\dados\CADASTRO.fdb;DataSource=localhost;Port=3050;Dialect=3;Charset=NONE;Role=;Connection lifetime=15;Pooling=true;MinPoolSize=0;MaxPoolSize=50;Packet Size=8192;
+ServerType=0";
 
             return new FbConnection(configuration);
         }
@@ -40,6 +41,8 @@ namespace EM.Repository
                     FbDataAdapter da = new FbDataAdapter(cmd);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
+
+
                     return dt;
                 }
 
@@ -62,7 +65,7 @@ namespace EM.Repository
                 try
                 {
                     conexaoFireBird.Open();
-                    string mSQL = $"INSERT into ALUNOS Values ({aluno.Matricula}, {aluno.Nome}, {(int)aluno.Sexo}, {aluno.Nascimento.ToString("d", CultureInfo.CreateSpecificCulture("pt-BR"))}, {aluno.CPF})";
+                    string mSQL = $"INSERT into ALUNOS Values ({aluno.Matricula}, '{aluno.Nome}', {(int)aluno.Sexo}, '{aluno.Nascimento.ToString("d", CultureInfo.CreateSpecificCulture("pt-BR"))}', '{aluno.CPF}')";
                     FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
                     cmd.ExecuteNonQuery();
                 }
@@ -79,14 +82,37 @@ namespace EM.Repository
             }
         }
 
-        public static Aluno fb_ProcuraDados(int matricula)
+        public static void fb_ExcluirDados(int matricula)
+        {
+            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            {
+                try {
+                    conexaoFireBird.Open();
+                    string mSQL = $"DELETE from ALUNOS where MATRICULA={matricula}";
+                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
+                    cmd.ExecuteNonQuery();
+                }
+
+                catch(FbException fbex)
+                {
+                    throw fbex;
+                }
+
+                finally
+                {
+                    conexaoFireBird.Close();
+                }
+            }
+        }
+
+        public static IEnumerable<Aluno> fb_ProcuraDados(int matricula)
         {
             using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
             {
                 try
                 {
                     conexaoFireBird.Open();
-                    string mSQL = $"Select * from ALUNOS Where MATRICULA = {matricula}";
+                    string mSQL = $"Select * from ALUNOS Where MATRICULA={matricula}";
                     FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
                     FbDataReader dr = cmd.ExecuteReader();
                     Aluno aluno = new Aluno();
@@ -98,7 +124,9 @@ namespace EM.Repository
                         aluno.Nascimento = DateTime.ParseExact(dr[3].ToString(), "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("pt-BR"));
                         aluno.CPF = dr[4].ToString();
                     }
-                    return aluno;
+                    List<Aluno> teste = new List<Aluno>();
+                    teste.Add(aluno);
+                    return teste;
                 }
 
                 catch (FbException fbex)

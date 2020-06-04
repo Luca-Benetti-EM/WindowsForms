@@ -5,8 +5,8 @@ namespace EM.Domain
 {
     public enum EnumeradorSexo
     {
-        Masculino,
-        Feminino
+        Masculino = 0,
+        Feminino = 1
     }
 
     public class Aluno : IEntidade

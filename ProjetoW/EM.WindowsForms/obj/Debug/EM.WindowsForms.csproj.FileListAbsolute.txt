@@ -118,3 +118,4 @@ C:\work\WindowsForms\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csproj.C
 C:\work\WindowsForms\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.exe
 C:\work\WindowsForms\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.pdb
 C:\work\WindowsForms\ProjetoW\EM.WindowsForms\bin\Debug\FirebirdSql.Data.FirebirdClient.dll
+C:\work\WindowsForms\ProjetoW\EM.WindowsForms\bin\Debug\EM.Repository.dll.config
