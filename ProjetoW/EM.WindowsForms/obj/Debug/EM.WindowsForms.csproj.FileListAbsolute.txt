@@ -103,10 +103,8 @@ C:\work\WindowsForms\ProjetoW\EM.WindowsForms\bin\Debug\EM.WindowsForms.pdb
 C:\work\WindowsForms\ProjetoW\EM.WindowsForms\bin\Debug\pt-BR\EM.WindowsForms.resources.dll
 C:\work\WindowsForms\ProjetoW\EM.WindowsForms\bin\Debug\EM.Domain.dll
 C:\work\WindowsForms\ProjetoW\EM.WindowsForms\bin\Debug\EM.Repository.dll
-C:\work\WindowsForms\ProjetoW\EM.WindowsForms\bin\Debug\EM.MetodosExtensao.dll
 C:\work\WindowsForms\ProjetoW\EM.WindowsForms\bin\Debug\EM.Domain.pdb
 C:\work\WindowsForms\ProjetoW\EM.WindowsForms\bin\Debug\EM.Repository.pdb
-C:\work\WindowsForms\ProjetoW\EM.WindowsForms\bin\Debug\EM.MetodosExtensao.pdb
 C:\work\WindowsForms\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.csprojAssemblyReference.cache
 C:\work\WindowsForms\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.Cadastro.resources
 C:\work\WindowsForms\ProjetoW\EM.WindowsForms\obj\Debug\EM.WindowsForms.Properties.Resources.resources

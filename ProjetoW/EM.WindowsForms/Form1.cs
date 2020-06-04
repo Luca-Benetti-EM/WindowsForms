@@ -22,7 +22,7 @@ namespace EM.WindowsForms
             cboSexo.DataSource = Enum.GetValues(typeof(EnumeradorSexo));
 
             dgvListaAlunos.DataSource = bsListaAlunos;
-            bsListaAlunos.DataSource = AcessoFB.fb_GetDados();
+            bsListaAlunos.DataSource = _repositorio.GetAll().OrderBy(a => a.Matricula);
 
             bsListaAlunos.ResetBindings(false);
 
@@ -72,8 +72,8 @@ namespace EM.WindowsForms
 
             try
             {
-                if (btnAdicionar.Text == "Adicionar") AcessoFB.fb_InserirDados(aluno);
-                if (btnAdicionar.Text == "Modificar") AcessoFB.fb_AlterarDados(aluno);
+                if (btnAdicionar.Text == "Adicionar") _repositorio.Add(aluno);
+                if (btnAdicionar.Text == "Modificar") _repositorio.Update(aluno);
             }
 
             catch (Exception erroManipular)
@@ -82,7 +82,7 @@ namespace EM.WindowsForms
                 return;
             }
 
-            bsListaAlunos.DataSource = AcessoFB.fb_GetDados();
+            bsListaAlunos.DataSource = _repositorio.GetAll();
             dgvListaAlunos.DataSource = bsListaAlunos;
 
             if (btnAdicionar.Text == "Modificar") MessageBox.Show("Modificado com sucesso");
@@ -108,7 +108,7 @@ namespace EM.WindowsForms
                 btnEditar_Click(sender, e);
             }
 
-            bsListaAlunos.DataSource = AcessoFB.fb_GetDados();
+            bsListaAlunos.DataSource = _repositorio.GetAll().OrderBy(a => a.Matricula);
         }
 
         
@@ -123,7 +123,7 @@ namespace EM.WindowsForms
 
             if (MessageBox.Show("Tem certeza que deseja realizar a exclusão do aluno?", "Atenção", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                AcessoFB.fb_ExcluirDados((Aluno)bsListaAlunos.Current);
+                _repositorio.Remove((Aluno)bsListaAlunos.Current);
 
                 bsListaAlunos.DataSource = _repositorio.GetAll().OrderBy(a => a.Matricula);
                 btnLimpar_Click(sender, e);
