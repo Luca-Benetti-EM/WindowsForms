@@ -20,6 +20,8 @@ namespace EM.Repository.Testes
             var colecaoContemAluno = repositorio.GetAll().Contains(aluno);
 
             Assert.IsTrue(colecaoContemAluno);
+
+            repositorio.Remove(repositorio.GetByMatricula(1));
         }
 
         [TestMethod]
@@ -27,19 +29,22 @@ namespace EM.Repository.Testes
         {
             RepositorioAluno repositorio = new RepositorioAluno();
 
-            Aluno aluno = new Aluno(1, "A", new DateTime(2000, 01, 25), "", EnumeradorSexo.Masculino);
+            Aluno aluno = new Aluno(2, "A", new DateTime(2000, 01, 25), "", EnumeradorSexo.Masculino);
 
             repositorio.Add(aluno);
 
             Assert.IsTrue(repositorio.GetAll().Contains(aluno));
 
-            aluno = new Aluno(2, "B", new DateTime(2000, 01, 20), "", EnumeradorSexo.Feminino);
+            aluno = new Aluno(3, "B", new DateTime(2000, 01, 20), "", EnumeradorSexo.Feminino);
 
             repositorio.Add(aluno);
 
             var segundoAlunoComCPFVazioAdicionado = repositorio.GetAll().Contains(aluno);
 
             Assert.IsTrue(segundoAlunoComCPFVazioAdicionado);
+
+            repositorio.Remove(repositorio.GetByMatricula(2));
+            repositorio.Remove(repositorio.GetByMatricula(3));
         }
 
         [TestMethod]
@@ -47,15 +52,16 @@ namespace EM.Repository.Testes
         {
             RepositorioAluno repositorio = new RepositorioAluno();
 
-            Aluno aluno = new Aluno(1, "A", new DateTime(25 / 01 / 2000), "", EnumeradorSexo.Masculino);
+            Aluno aluno = new Aluno(4, "A", new DateTime(25 / 01 / 2000), "", EnumeradorSexo.Masculino);
 
             repositorio.Add(aluno);
 
-            aluno = new Aluno(1, "B", new DateTime(20 / 01 / 2000), "", EnumeradorSexo.Feminino);
+            aluno = new Aluno(4, "B", new DateTime(20 / 01 / 2000), "", EnumeradorSexo.Feminino);
 
             var ex = Assert.ThrowsException<InconsistenciaException>(() => repositorio.Add(aluno));
             Assert.AreEqual("Matrícula ou CPF já cadastrado!", ex.Message);
 
+            repositorio.Remove(repositorio.GetByMatricula(4));
         }
 
         [TestMethod]
@@ -63,33 +69,43 @@ namespace EM.Repository.Testes
         {
             RepositorioAluno repositorio = new RepositorioAluno();
 
-            Aluno aluno = new Aluno(1, "A", new DateTime(25 / 01 / 2000), "412.637.180-00", EnumeradorSexo.Masculino);
+            repositorio.Add(new Aluno(5, "A", new DateTime(25 / 01 / 2000), "412.637.180-00", EnumeradorSexo.Masculino));
 
-            repositorio.Add(aluno);
-
-            aluno = new Aluno(2, "B", new DateTime(20 / 01 / 2000), "412.637.180-00", EnumeradorSexo.Feminino);
+            Aluno aluno = new Aluno(6, "B", new DateTime(20 / 01 / 2000), "412.637.180-00", EnumeradorSexo.Feminino);
 
             var ex = Assert.ThrowsException<InconsistenciaException>(() => repositorio.Add(aluno));
             Assert.AreEqual("Matrícula ou CPF já cadastrado!", ex.Message);
+
+            repositorio.Remove(repositorio.GetByMatricula(5));
+        }
+
+        [TestMethod]
+        public void Falha_Ao_Remover_Aluno_Que_Nao_Existe() {
+
+            RepositorioAluno repositorio = new RepositorioAluno();
+            
+            Aluno aluno = new Aluno(1, "A", new DateTime(25 / 01 / 2000), "412.637.180-00", EnumeradorSexo.Masculino);
+
+            var ex = Assert.ThrowsException<InconsistenciaException>(() => repositorio.Remove(aluno));
+            Assert.AreEqual("Matrícula não cadastrada!", ex.Message);
         }
 
         [TestMethod]
         public void Remove_Aluno_Da_ColecaoDeAlunos()
         {
-            RepositorioAluno _repositorio = new RepositorioAluno();
+            RepositorioAluno repositorio = new RepositorioAluno();
 
-            Aluno _aluno = new Aluno(1, "A", new DateTime(25 / 01 / 2000), "", EnumeradorSexo.Masculino);
+            Aluno aluno = new Aluno(7, "A", new DateTime(25 / 01 / 2000), "", EnumeradorSexo.Masculino);
 
-            _repositorio.Add(_aluno);
-            var colecaoContemAluno = _repositorio.GetAll().Contains(_aluno);
+            repositorio.Add(aluno);
+            var colecaoContemAluno = repositorio.GetAll().Contains(aluno);
 
             Assert.IsTrue(colecaoContemAluno);
 
-            _repositorio.Remove(_aluno);
-            colecaoContemAluno = _repositorio.GetAll().Contains(_aluno);
+            repositorio.Remove(aluno);
+            colecaoContemAluno = repositorio.GetAll().Contains(aluno);
 
             Assert.IsFalse(colecaoContemAluno);
-
         }
 
         [TestMethod]
@@ -97,20 +113,22 @@ namespace EM.Repository.Testes
         {
             RepositorioAluno repositorio = new RepositorioAluno();
 
-            Aluno aluno = new Aluno(1, "A", new DateTime(25 / 01 / 2000), "", EnumeradorSexo.Masculino);
+            Aluno aluno = new Aluno(8, "A", new DateTime(25 / 01 / 2000), "", EnumeradorSexo.Masculino);
 
             repositorio.Add(aluno);
 
-            aluno = new Aluno(1, "B", new DateTime(20 / 01 / 2000), "412.637.180-00", EnumeradorSexo.Feminino);
+            aluno = new Aluno(8, "B", new DateTime(20 / 01 / 2000), "412.637.180-00", EnumeradorSexo.Feminino);
 
             repositorio.Update(aluno);
 
-            Aluno alunoAtualizado = repositorio.GetByMatricula(1);
+            Aluno alunoAtualizado = repositorio.GetByMatricula(8);
 
             Assert.AreEqual(alunoAtualizado.Nome, aluno.Nome);
             Assert.AreEqual(alunoAtualizado.Sexo, aluno.Sexo);
             Assert.AreEqual(alunoAtualizado.Nascimento, aluno.Nascimento);
             Assert.AreEqual(alunoAtualizado.CPF, "412.637.180-00");
+
+            repositorio.Remove(repositorio.GetByMatricula(8));
 
         }
 
@@ -120,9 +138,9 @@ namespace EM.Repository.Testes
         {
             RepositorioAluno repositorio = new RepositorioAluno();
 
-            Aluno joao = new Aluno(1, "João", new DateTime(25 / 01 / 2000), "", EnumeradorSexo.Masculino);
-            Aluno abraao = new Aluno(2, "Abrãao", new DateTime(25 / 01 / 2000), "", EnumeradorSexo.Masculino);
-            Aluno luca = new Aluno(3, "Luca Benetti", new DateTime(25 / 01 / 2000), "", EnumeradorSexo.Masculino);
+            Aluno joao = new Aluno(9, "João", new DateTime(25 / 01 / 2000), "", EnumeradorSexo.Masculino);
+            Aluno abraao = new Aluno(10, "Abrãao", new DateTime(25 / 01 / 2000), "", EnumeradorSexo.Masculino);
+            Aluno luca = new Aluno(11, "Luca Benetti", new DateTime(25 / 01 / 2000), "", EnumeradorSexo.Masculino);
 
             repositorio.Add(joao);
             repositorio.Add(abraao);
@@ -133,16 +151,20 @@ namespace EM.Repository.Testes
             Assert.IsTrue(colecaoDeAlunos.Contains(joao));
             Assert.IsTrue(colecaoDeAlunos.Contains(abraao));
             Assert.IsTrue(colecaoDeAlunos.Contains(luca));
+
+            repositorio.Remove(repositorio.GetByMatricula(9));
+            repositorio.Remove(repositorio.GetByMatricula(10));
+            repositorio.Remove(repositorio.GetByMatricula(11));
         }
 
 
         [TestMethod]
         public void Retorna_Colecao_Determinada_Get()
         {
-            Aluno joao = new Aluno(1, "João", new DateTime(2000, 01, 25), "", EnumeradorSexo.Feminino);
-            Aluno luis = new Aluno(2, "Luis", new DateTime(2008, 01, 14), "", EnumeradorSexo.Feminino);
-            Aluno abraao = new Aluno(3, "Abrãao", new DateTime(1990, 01, 01), "", EnumeradorSexo.Masculino);
-            Aluno luca = new Aluno(4, "Luca Benetti", new DateTime(1990, 02, 01), "", EnumeradorSexo.Masculino);
+            Aluno joao = new Aluno(12, "João", new DateTime(2000, 01, 25), "", EnumeradorSexo.Feminino);
+            Aluno luis = new Aluno(13, "Luis", new DateTime(2008, 01, 14), "", EnumeradorSexo.Feminino);
+            Aluno abraao = new Aluno(14, "Abrãao", new DateTime(1990, 01, 01), "", EnumeradorSexo.Masculino);
+            Aluno luca = new Aluno(15, "Luca Benetti", new DateTime(1990, 02, 01), "", EnumeradorSexo.Masculino);
 
             RepositorioAluno repositorio = new RepositorioAluno();
 
@@ -165,6 +187,11 @@ namespace EM.Repository.Testes
             Assert.IsFalse(colecaoDeAlunosFeminino.Contains(abraao));
             Assert.IsFalse(colecaoDeAlunosFeminino.Contains(luca));
 
+            repositorio.Remove(repositorio.GetByMatricula(12));
+            repositorio.Remove(repositorio.GetByMatricula(13));
+            repositorio.Remove(repositorio.GetByMatricula(14));
+            repositorio.Remove(repositorio.GetByMatricula(15));
+
         }
 
         [TestMethod]
@@ -172,16 +199,19 @@ namespace EM.Repository.Testes
         {
             RepositorioAluno repositorio = new RepositorioAluno();
 
-            Aluno aluno = new Aluno(1, "A", new DateTime(2000, 01, 25), "", EnumeradorSexo.Masculino);
+            Aluno aluno = new Aluno(16, "A", new DateTime(2000, 01, 25), "", EnumeradorSexo.Masculino);
 
             repositorio.Add(aluno);
-            repositorio.Add(new Aluno(2, "A", new DateTime(2000, 01, 25), "", EnumeradorSexo.Masculino));
+            repositorio.Add(new Aluno(17, "A", new DateTime(2000, 01, 25), "", EnumeradorSexo.Masculino));
 
-            var alunoMatricula1 = repositorio.GetByMatricula(1);
-            var alunoMatricula2 = repositorio.GetByMatricula(2);
+            var alunoMatricula1 = repositorio.GetByMatricula(16);
+            var alunoMatricula2 = repositorio.GetByMatricula(17);
 
             Assert.AreEqual(aluno, alunoMatricula1);
             Assert.AreNotEqual(aluno, alunoMatricula2);
+
+            repositorio.Remove(repositorio.GetByMatricula(16));
+            repositorio.Remove(repositorio.GetByMatricula(17));
 
         }
 
@@ -190,9 +220,9 @@ namespace EM.Repository.Testes
         {
             RepositorioAluno repositorio = new RepositorioAluno();
 
-            Aluno joao = new Aluno(1, "João", new DateTime(2000, 01, 25), "", EnumeradorSexo.Masculino);
-            Aluno abraao = new Aluno(2, "Abrãao", new DateTime(2000, 01, 25), "", EnumeradorSexo.Masculino);
-            Aluno luca = new Aluno(3, "Luca Benetti", new DateTime(2000, 01, 25), "", EnumeradorSexo.Masculino);
+            Aluno joao = new Aluno(18, "João", new DateTime(2000, 01, 25), "", EnumeradorSexo.Masculino);
+            Aluno abraao = new Aluno(19, "Abrãao", new DateTime(2000, 01, 25), "", EnumeradorSexo.Masculino);
+            Aluno luca = new Aluno(20, "Luca Benetti", new DateTime(2000, 01, 25), "", EnumeradorSexo.Masculino);
 
             repositorio.Add(joao);
             repositorio.Add(abraao);
@@ -226,6 +256,10 @@ namespace EM.Repository.Testes
                 && colecaoDeAlunosContendo_João.Contains(luca)
                 && colecaoDeAlunosContendo_joao.Contains(luca)
                 && colecaoDeAlunosContendo_jOaO.Contains(luca));
+
+            repositorio.Remove(repositorio.GetByMatricula(18));
+            repositorio.Remove(repositorio.GetByMatricula(19));
+            repositorio.Remove(repositorio.GetByMatricula(20));
         }
 
     }
