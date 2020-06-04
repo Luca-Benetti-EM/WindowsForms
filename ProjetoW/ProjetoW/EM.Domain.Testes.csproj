@@ -74,6 +74,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InconsistenciaException.cs" />
     <Compile Include="Testes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

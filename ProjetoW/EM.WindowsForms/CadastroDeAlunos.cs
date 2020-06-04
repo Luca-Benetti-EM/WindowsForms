@@ -10,19 +10,19 @@ using FirebirdSql.Data.FirebirdClient;
 
 namespace EM.WindowsForms
 {
-    public partial class Cadastro : Form
+    public partial class CadastroDeAlunos : Form
     {
         private BindingSource bsListaAlunos = new BindingSource();
-        private RepositorioAluno _repositorio = new RepositorioAluno();
+        private Processo<Aluno> processo = new Processo<Aluno>();
 
-        public Cadastro()
+        public CadastroDeAlunos()
         {
             InitializeComponent();
 
             cboSexo.DataSource = Enum.GetValues(typeof(EnumeradorSexo));
 
             dgvListaAlunos.DataSource = bsListaAlunos;
-            bsListaAlunos.DataSource = _repositorio.GetAll().OrderBy(a => a.Matricula);
+            bsListaAlunos.DataSource = processo.GetAll().OrderBy(a => a.Matricula);
 
             bsListaAlunos.ResetBindings(false);
 
@@ -72,8 +72,8 @@ namespace EM.WindowsForms
 
             try
             {
-                if (btnAdicionar.Text == "Adicionar") _repositorio.Add(aluno);
-                if (btnAdicionar.Text == "Modificar") _repositorio.Update(aluno);
+                if (btnAdicionar.Text == "Adicionar") processo.Add(aluno);
+                if (btnAdicionar.Text == "Modificar") processo.Update(aluno);
             }
 
             catch (Exception erroManipular)
@@ -82,7 +82,7 @@ namespace EM.WindowsForms
                 return;
             }
 
-            bsListaAlunos.DataSource = _repositorio.GetAll();
+            bsListaAlunos.DataSource = processo.GetAll();
             dgvListaAlunos.DataSource = bsListaAlunos;
 
             if (btnAdicionar.Text == "Modificar") MessageBox.Show("Modificado com sucesso");
@@ -108,7 +108,7 @@ namespace EM.WindowsForms
                 btnEditar_Click(sender, e);
             }
 
-            bsListaAlunos.DataSource = _repositorio.GetAll().OrderBy(a => a.Matricula);
+            bsListaAlunos.DataSource = processo.GetAll().OrderBy(a => a.Matricula);
         }
 
         
@@ -123,9 +123,9 @@ namespace EM.WindowsForms
 
             if (MessageBox.Show("Tem certeza que deseja realizar a exclusão do aluno?", "Atenção", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                _repositorio.Remove((Aluno)bsListaAlunos.Current);
+                processo.Remove((Aluno)bsListaAlunos.Current);
 
-                bsListaAlunos.DataSource = _repositorio.GetAll().OrderBy(a => a.Matricula);
+                bsListaAlunos.DataSource = processo.GetAll().OrderBy(a => a.Matricula);
                 btnLimpar_Click(sender, e);
             }
         }
@@ -200,35 +200,21 @@ namespace EM.WindowsForms
         {
             if (string.IsNullOrEmpty(txtPesquisa.Text) || string.IsNullOrWhiteSpace(txtPesquisa.Text))
             {
-                bsListaAlunos.DataSource = _repositorio.GetAll().OrderBy(a => a.Matricula);
+                bsListaAlunos.DataSource = processo.GetAll().OrderBy(a => a.Matricula);
                 return;
             }
 
-            if (EhInt(txtPesquisa.Text))
+            try
             {
-
-
-                if (_repositorio.GetByMatricula(Convert.ToInt32(txtPesquisa.Text)) == null)
-                {
-                    MessageBox.Show("Não foram encontrados alunos para a matrícula especificada, tente novamente");
-                    txtPesquisa.Focus();
-                    txtPesquisa.Text = "";
-                    return;
-                }
-
-                bsListaAlunos.DataSource = _repositorio.GetByMatricula(Convert.ToInt32(txtPesquisa.Text));
+                bsListaAlunos.DataSource = processo.GetByPesquisa(txtPesquisa.Text);
             }
 
-            else
+            catch
             {
-                if (_repositorio.GetByContendoNoNome(txtPesquisa.Text).Count() == 0)
-                {
-                    MessageBox.Show("Não foram encontrados alunos para o nome especificado, tente novamente");
-                    txtPesquisa.Text = "";
-                    return;
-                }
-
-                bsListaAlunos.DataSource = _repositorio.GetByContendoNoNome(txtPesquisa.Text).OrderBy(a => a.Nome);
+                MessageBox.Show("Não foram encontrados alunos para a matrícula ou nome especificados, tente novamente");
+                txtPesquisa.Focus();
+                txtPesquisa.Text = "";
+                return;
             }
 
         }
@@ -275,13 +261,5 @@ namespace EM.WindowsForms
 
         #endregion
 
-        #region Métodos Utilitários
-
-        private bool EhInt(string entrada)
-        {
-            return Int32.TryParse(entrada, out _);
-        }
-
-        #endregion
     }
 }

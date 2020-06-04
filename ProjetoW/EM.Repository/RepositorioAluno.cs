@@ -26,8 +26,6 @@ ServerType=0";
         public override void Add(Aluno objeto)
         {
 
-            if (GetAll().Contains(objeto)) throw new InconsistenciaException("Matrícula ou CPF já cadastrado!"); 
-
             using (var conexaoFireBird = ConectarBD())
             {
                 try
@@ -53,8 +51,6 @@ ServerType=0";
 
         public override void Remove(Aluno objeto)
         {
-            if (!(GetAll().Contains(objeto))) throw new InconsistenciaException("Matrícula não cadastrada!");
-
             using (FbConnection conexaoFireBird = ConectarBD())
             {
                 try

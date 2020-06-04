@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aluno.cs" />
-    <Compile Include="Exceptions.cs" />
     <Compile Include="IEntidade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

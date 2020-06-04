@@ -48,49 +48,6 @@ namespace EM.Repository.Testes
         }
 
         [TestMethod]
-        public void Falha_Ao_Inserir_Mesma_Matricula()
-        {
-            RepositorioAluno repositorio = new RepositorioAluno();
-
-            Aluno aluno = new Aluno(4, "A", new DateTime(25 / 01 / 2000), "", EnumeradorSexo.Masculino);
-
-            repositorio.Add(aluno);
-
-            aluno = new Aluno(4, "B", new DateTime(20 / 01 / 2000), "", EnumeradorSexo.Feminino);
-
-            var ex = Assert.ThrowsException<InconsistenciaException>(() => repositorio.Add(aluno));
-            Assert.AreEqual("Matrícula ou CPF já cadastrado!", ex.Message);
-
-            repositorio.Remove(repositorio.GetByMatricula(4));
-        }
-
-        [TestMethod]
-        public void Falha_Ao_Inserir_Mesmo_CPF()
-        {
-            RepositorioAluno repositorio = new RepositorioAluno();
-
-            repositorio.Add(new Aluno(5, "A", new DateTime(25 / 01 / 2000), "412.637.180-00", EnumeradorSexo.Masculino));
-
-            Aluno aluno = new Aluno(6, "B", new DateTime(20 / 01 / 2000), "412.637.180-00", EnumeradorSexo.Feminino);
-
-            var ex = Assert.ThrowsException<InconsistenciaException>(() => repositorio.Add(aluno));
-            Assert.AreEqual("Matrícula ou CPF já cadastrado!", ex.Message);
-
-            repositorio.Remove(repositorio.GetByMatricula(5));
-        }
-
-        [TestMethod]
-        public void Falha_Ao_Remover_Aluno_Que_Nao_Existe() {
-
-            RepositorioAluno repositorio = new RepositorioAluno();
-            
-            Aluno aluno = new Aluno(1, "A", new DateTime(25 / 01 / 2000), "412.637.180-00", EnumeradorSexo.Masculino);
-
-            var ex = Assert.ThrowsException<InconsistenciaException>(() => repositorio.Remove(aluno));
-            Assert.AreEqual("Matrícula não cadastrada!", ex.Message);
-        }
-
-        [TestMethod]
         public void Remove_Aluno_Da_ColecaoDeAlunos()
         {
             RepositorioAluno repositorio = new RepositorioAluno();

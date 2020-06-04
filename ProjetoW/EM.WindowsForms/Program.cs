@@ -13,7 +13,7 @@ namespace EM.WindowsForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Cadastro());
+            Application.Run(new CadastroDeAlunos());
         }
     }
 }

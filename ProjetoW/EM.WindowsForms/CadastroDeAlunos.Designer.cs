@@ -2,7 +2,7 @@
 
 namespace EM.WindowsForms
 {
-    partial class Cadastro
+    partial class CadastroDeAlunos
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace EM.WindowsForms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cadastro));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroDeAlunos));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlSuperior = new System.Windows.Forms.Panel();
