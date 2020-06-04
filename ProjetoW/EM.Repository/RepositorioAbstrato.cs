@@ -8,36 +8,14 @@ namespace EM.Repository
 {
     public abstract class RepositorioAbstrato<T> where T : IEntidade
     {
-        protected List<T> ColecaoDeAlunos = new List<T>();
+        public abstract void Add(T objeto);
 
-        public void Add(T objeto)
-        {
-            if (ColecaoDeAlunos.IndexOf(objeto) != -1) throw new InconsistenciaException("Matrícula ou CPF já cadastrado!");
+        public abstract void Remove(T objeto);
 
-            ColecaoDeAlunos.Add(objeto);
-        }
+        public abstract void Update(T objeto);
 
-        public void Remove(T objeto)
-        {
-            if (ColecaoDeAlunos.IndexOf(objeto) == -1) throw new InconsistenciaException("Aluno não existe para ser removido!");
+        public abstract IEnumerable<T> GetAll();
 
-            ColecaoDeAlunos.Remove(objeto);
-        }
-
-        public void Update(T objeto)
-        {
-            Remove(objeto);
-            Add(objeto);
-        }
-
-        public IEnumerable<T> GetAll()
-        {
-            return (IEnumerable<T>)ColecaoDeAlunos;
-        }
-
-        public IEnumerable<T> Get(Expression<Func<T, bool>> predicate)
-        {
-            return ColecaoDeAlunos.Where(predicate.Compile());
-        }
+        public abstract IEnumerable<T> Get(Expression<Func<T, bool>> predicate);
     }
 }

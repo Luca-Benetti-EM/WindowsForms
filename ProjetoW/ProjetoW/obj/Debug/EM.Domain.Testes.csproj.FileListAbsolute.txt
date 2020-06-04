@@ -143,3 +143,4 @@ C:\work\WindowsForms\ProjetoW\ProjetoW\obj\Debug\EM.Domain.Testes.csproj.CoreCom
 C:\work\WindowsForms\ProjetoW\ProjetoW\obj\Debug\EM.Domain.Testes.csproj.CopyComplete
 C:\work\WindowsForms\ProjetoW\ProjetoW\obj\Debug\ProjetoW.dll
 C:\work\WindowsForms\ProjetoW\ProjetoW\obj\Debug\ProjetoW.pdb
+C:\work\WindowsForms\ProjetoW\ProjetoW\bin\Debug\FirebirdSql.Data.FirebirdClient.dll

@@ -90,3 +90,5 @@ C:\work\WindowsForms\ProjetoW\EM.Repository.Testes\obj\Debug\EM.Repository.Teste
 C:\work\WindowsForms\ProjetoW\EM.Repository.Testes\obj\Debug\EM.Repository.Testes.csproj.CopyComplete
 C:\work\WindowsForms\ProjetoW\EM.Repository.Testes\obj\Debug\EM.Repository.Testes.dll
 C:\work\WindowsForms\ProjetoW\EM.Repository.Testes\obj\Debug\EM.Repository.Testes.pdb
+C:\work\WindowsForms\ProjetoW\EM.Repository.Testes\bin\Debug\FirebirdSql.Data.FirebirdClient.dll
+C:\work\WindowsForms\ProjetoW\EM.Repository.Testes\bin\Debug\EM.Repository.dll.config

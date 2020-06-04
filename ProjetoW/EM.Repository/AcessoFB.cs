@@ -29,21 +29,37 @@ ServerType=0";
             return new FbConnection(configuration);
         }
 
-        public static DataTable fb_GetDados()
+        public static IEnumerable<Aluno> fb_GetDados()
         {
-            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            using (var conexaoFireBird = getInstancia().getConexao())
             {
                 try
                 {
                     conexaoFireBird.Open();
-                    string mSQL = "Select * from ALUNOS";
-                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
-                    FbDataAdapter da = new FbDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
+                    var mSQL = $"SELECT * FROM ALUNOS";
+                    var ColecaoDeAlunos = new List<Aluno>();
+                    using (var cmd = new FbCommand(mSQL, conexaoFireBird))
+                    {
+                        using (var dr = cmd.ExecuteReader())
+                        {
 
+                            while (dr.Read())
+                            {
+                                var aluno = new Aluno
+                                {
+                                    Matricula = Convert.ToInt32(dr[0]),
+                                    Nome = dr[1].ToString(),
+                                    Sexo = (EnumeradorSexo)dr[2],
+                                    Nascimento = DateTime.ParseExact(dr[3].ToString(), "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("pt-BR")),
+                                    CPF = dr[4].ToString()
+                                };
 
-                    return dt;
+                                ColecaoDeAlunos.Add(aluno);
+                            }
+                        }
+                    }
+                    conexaoFireBird.Close();
+                    return ColecaoDeAlunos;
                 }
 
                 catch (FbException fbex)
@@ -60,14 +76,15 @@ ServerType=0";
 
         public static void fb_InserirDados(Aluno aluno)
         {
-            using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            using (var conexaoFireBird = getInstancia().getConexao())
             {
                 try
                 {
                     conexaoFireBird.Open();
-                    string mSQL = $"INSERT into ALUNOS Values ({aluno.Matricula}, '{aluno.Nome}', {(int)aluno.Sexo}, '{aluno.Nascimento.ToString("d", CultureInfo.CreateSpecificCulture("pt-BR"))}', '{aluno.CPF}')";
-                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
+                    var mSQL = $"INSERT into ALUNOS Values ({aluno.Matricula}, '{aluno.Nome}', {(int)aluno.Sexo}, '{aluno.Nascimento.ToString("d", CultureInfo.CreateSpecificCulture("pt-BR"))}', '{aluno.CPF}')";
+                    var cmd = new FbCommand(mSQL, conexaoFireBird);
                     cmd.ExecuteNonQuery();
+                    conexaoFireBird.Close();
                 }
 
                 catch (FbException fbex)
@@ -82,16 +99,17 @@ ServerType=0";
             }
         }
 
-        public static void fb_ExcluirDados(int matricula)
+        public static void fb_ExcluirDados(Aluno aluno)
         {
             using (FbConnection conexaoFireBird = AcessoFB.getInstancia().getConexao())
             {
                 try
                 {
                     conexaoFireBird.Open();
-                    string mSQL = $"DELETE from ALUNOS where MATRICULA={matricula}";
-                    FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
+                    var mSQL = $"DELETE from ALUNOS where MATRICULA={aluno.Matricula}";
+                    var cmd = new FbCommand(mSQL, conexaoFireBird);
                     cmd.ExecuteNonQuery();
+                    conexaoFireBird.Close();
                 }
 
                 catch (FbException fbex)
@@ -104,16 +122,18 @@ ServerType=0";
                     conexaoFireBird.Close();
                 }
             }
+
+
         }
 
-        public static IEnumerable<Aluno> fb_ProcuraDados()
+        public static IEnumerable<Aluno> fb_ProcuraDados(int matricula)
         {
-            using (var conexaoFireBird = AcessoFB.getInstancia().getConexao())
+            using (var conexaoFireBird = getInstancia().getConexao())
             {
                 try
                 {
                     conexaoFireBird.Open();
-                    var mSQL = $"SELECT * FROM ALUNOS";
+                    var mSQL = $"SELECT * FROM ALUNOS WHERE MATRICULA={matricula}";
                     var ColecaoDeAlunos = new List<Aluno>();
                     using (var cmd = new FbCommand(mSQL, conexaoFireBird))
                     {
@@ -122,19 +142,19 @@ ServerType=0";
 
                             while (dr.Read())
                             {
-                                var aluno = new Aluno();
-
-                                aluno.Matricula = Convert.ToInt32(dr[0]);
-                                aluno.Nome = dr[1].ToString();
-                                aluno.Sexo = (EnumeradorSexo)dr[2];
-                                aluno.Nascimento = DateTime.ParseExact(dr[3].ToString(), "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("pt-BR"));
-                                aluno.CPF = dr[4].ToString();
+                                var aluno = new Aluno
+                                {
+                                    Matricula = Convert.ToInt32(dr[0]),
+                                    Nome = dr[1].ToString(),
+                                    Sexo = (EnumeradorSexo)dr[2],
+                                    Nascimento = DateTime.ParseExact(dr[3].ToString(), "dd/MM/yyyy", CultureInfo.CreateSpecificCulture("pt-BR")),
+                                    CPF = dr[4].ToString()
+                                };
 
                                 ColecaoDeAlunos.Add(aluno);
                             }
                         }
                     }
-
                     conexaoFireBird.Close();
                     return ColecaoDeAlunos;
                 }
@@ -143,8 +163,10 @@ ServerType=0";
                 {
                     throw fbex;
                 }
+
                 finally
                 {
+                    conexaoFireBird.Close();
                 }
             }
         }
@@ -156,9 +178,10 @@ ServerType=0";
                 try
                 {
                     conexaoFireBird.Open();
-                    string mSQL = $"UPDATE ALUNOS set MATRICULA={aluno.Matricula}, NOME ={aluno.Nome}, SEXO={(int)aluno.Sexo}, NASCIMENTO={aluno.Nascimento.ToString("d", CultureInfo.CreateSpecificCulture("pt-BR"))}, CPF={aluno.CPF}";
+                    string mSQL = $"UPDATE ALUNOS set NOME ='{aluno.Nome}', SEXO={(int)aluno.Sexo}, NASCIMENTO='{aluno.Nascimento.ToString("d", CultureInfo.CreateSpecificCulture("pt-BR"))}', CPF='{aluno.CPF}' WHERE MATRICULA={aluno.Matricula}" ;
                     FbCommand cmd = new FbCommand(mSQL, conexaoFireBird);
                     cmd.ExecuteNonQuery();
+                    conexaoFireBird.Close();
                 }
 
                 catch (FbException fbex)
